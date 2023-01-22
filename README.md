@@ -6,3 +6,5 @@ This is my portfolio website. It contains information about me, my education, sk
 
 [Demo] (https://portfolio-ervin-jhcc.000webhostapp.com/)
 
+Update
+https://ervin-jahic-portfolio.netlify.app/
