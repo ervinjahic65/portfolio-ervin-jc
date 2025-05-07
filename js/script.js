@@ -105,36 +105,36 @@ document.addEventListener('DOMContentLoaded', function() {
             liveUrl: 'https://decorinnovatetech.com/in/'
         },
         {
-            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+13',
-            altText: 'Project 13 Placeholder',
-            title: 'Project Title 13',
-            description: 'This is project 13. Customize its details.',
-            technologies: ['Python', 'Flask', 'SQLAlchemy'],
-            liveUrl: 'https://project-link-13.example.com'
+            imageSrc: '../images/1.webp',
+            altText: 'Consulting Columbus',
+            title: 'Consulting Columbus',
+            description: 'Consulting Columbus is a leading firm specializing in scam and cryptocurrency investigations. Our team of certified specialists of experienced scam investigators and cyber professionals are dedicated to helping victims of fraud just like you.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://consultingcolumbus.com/in/'
         },
         {
-            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+14',
-            altText: 'Project 14 Placeholder',
-            title: 'Project Title 14',
-            description: 'This is project 14. Customize its details.',
-            technologies: ['Java', 'Spring Boot', 'React'],
-            liveUrl: 'https://project-link-14.example.com'
+            imageSrc: '../images/blog3.jpg',
+            altText: 'CTLE Medica',
+            title: 'CTLE Medica',
+            description: 'Whether you are in training, returning to General Practice, or considering a career change, we’ll support you every step of the way during your shifts.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://ctlemedica.com/in/'
         },
         {
-            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+15',
-            altText: 'Project 15 Placeholder',
-            title: 'Project Title 15',
-            description: 'This is project 15. Customize its details.',
-            technologies: ['Swift', 'iOS SDK'],
-            liveUrl: 'https://project-link-15.example.com'
+            imageSrc: '../images/about_03.jpg',
+            altText: 'Medic Patel',
+            title: 'Medic Patel',
+            description: 'At Medic Patel, we offer flexible shifts including home visits, telehealth consultations, or both. Choose from daytime, evening, or overnight shifts across multiple regions.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://medicpatel.com/in/'
         },
         {
-            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+16',
-            altText: 'Project 16 Placeholder',
-            title: 'Project Title 16',
-            description: 'This is project 16. Customize its details.',
-            technologies: ['Kotlin', 'Android SDK', 'Jetpack Compose'],
-            liveUrl: 'https://project-link-16.example.com'
+            imageSrc: '../images/feature.jpg',
+            altText: 'All The Worlds A Business',
+            title: 'All The Worlds A Business',
+            description: 'Embark on your entrepreneurial journey with confidence by selecting the formation package that best aligns with your vision. We offer several options designed to meet diverse needs.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://alltheworldsabusiness.com/in/'
         },
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+17',
@@ -372,7 +372,5 @@ document.addEventListener('DOMContentLoaded', function() {
     changeLinkState();
     // Add scroll event listener
     window.addEventListener('scroll', changeLinkState);
-
-    console.log("Portfolio script loaded and initialized. GitHub URLs removed from project data.");
 });
 
