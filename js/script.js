@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const typedTextSpan = document.getElementById("typed-output");
     const cursorSpan = document.querySelector(".typed-cursor");
     // Text options for typing animation
-    const textArray = ["a web developer.", "a problem solver.", "a lifelong learner.", "an innovator."];
+    const textArray = ["A web developer.", "A problem solver.", "A lifelong learner.", "An innovator."];
     const typingDelay = 100;
     const erasingDelay = 50;
     const newTextDelay = 2000; // Delay before starting to type next text
