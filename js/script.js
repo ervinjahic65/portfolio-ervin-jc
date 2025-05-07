@@ -3,28 +3,26 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- Project Data ---
-    // Define your projects here. Add up to 20 (or more) objects.
+    // Define your projects here. All 20 projects now have a placeholder liveUrl.
+    // githubUrl property has been removed from all project objects.
     // For images, store them in an 'images/' folder in your project root,
     // e.g., 'images/project-name.webp' or 'images/project-name.jpg'
-    // Use webp for better compression and quality if possible.
     const projectsData = [
         {
-            imageSrc: 'images/avensor-customer-care.webp', // Example: images/avensor.webp
+            imageSrc: 'images/avensor-customer-care.webp',
             altText: 'Avensor Customer Care Platform Screenshot',
             title: 'Avensor Customer Care',
             description: 'A comprehensive customer support platform with ticketing, live chat, and knowledge base. Built to streamline customer interactions and improve response times.',
             technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.IO'],
-            githubUrl: 'https://github.com/yourusername/avensor-repo', // Replace with actual link
             liveUrl: 'https://avensor.example.com' // Replace with actual link
         },
         {
-            imageSrc: 'images/nectar-lms.webp', // Example: images/nectar-lms.jpg
+            imageSrc: 'images/nectar-lms.webp',
             altText: 'Nectar LMS Screenshot',
             title: 'Nectar LMS',
             description: 'Learning Management System for creating and managing online courses. Features include video hosting, interactive quizzes, student progress tracking, and certification.',
             technologies: ['Vue.js', 'Django', 'Python', 'PostgreSQL', 'Celery'],
-            githubUrl: '#', // '#' if no public repo
-            liveUrl: '#' // '#' if not deployed
+            liveUrl: 'https://nectar-lms.example.com' // Updated placeholder
         },
         {
             imageSrc: 'images/personal-projects-hub.webp',
@@ -32,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Personal Projects Hub',
             description: 'A curated collection of my smaller personal projects, experiments, and code snippets. Showcases proficiency in various technologies and creative coding ideas.',
             technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'Parcel'],
-            githubUrl: 'https://github.com/yourusername/projects-hub',
             liveUrl: 'https://projects.example.dev'
         },
         {
@@ -41,17 +38,14 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'BIDVLS Platform',
             description: 'An innovative B2B platform for [describe BIDVLS purpose clearly, e.g., supply chain management]. Focused on user experience, data analytics, and robust backend architecture.',
             technologies: ['Next.js', 'TypeScript', 'GraphQL', 'Firebase', 'Stripe API'],
-            githubUrl: '#',
             liveUrl: 'https://bidvls.example.com'
         },
-        // --- ADD MORE PROJECTS BELOW (UP TO 20 or more) ---
         {
-            imageSrc: 'images/project-5.webp', // Use a generic placeholder or specific image
+            imageSrc: 'images/project-5.webp',
             altText: 'Project 5 Screenshot',
             title: 'E-commerce Storefront',
             description: 'A fully responsive e-commerce website with product listings, cart functionality, and a secure checkout process. Integrated with a payment gateway.',
             technologies: ['React', 'Redux', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
-            githubUrl: 'https://github.com/yourusername/ecommerce-store',
             liveUrl: 'https://shop.example.com'
         },
         {
@@ -60,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Task Management App',
             description: 'A collaborative task management application allowing users to create projects, assign tasks, set deadlines, and track progress with a Kanban board view.',
             technologies: ['Angular', 'TypeScript', 'Firebase Realtime DB', 'Tailwind CSS'],
-            githubUrl: 'https://github.com/yourusername/task-manager',
             liveUrl: 'https://tasks.example.org'
         },
         {
@@ -69,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Weather Dashboard',
             description: 'A sleek weather dashboard that provides current weather conditions and forecasts for multiple locations using a third-party weather API.',
             technologies: ['JavaScript (Vanilla)', 'OpenWeatherMap API', 'Chart.js'],
-            githubUrl: 'https://github.com/yourusername/weather-dashboard',
             liveUrl: 'https://weather.example.io'
         },
         {
@@ -78,38 +70,31 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Portfolio API',
             description: 'A RESTful API to serve data for this portfolio website and other personal projects. Built with Node.js and Express, deployed on a cloud platform.',
             technologies: ['Node.js', 'Express', 'JWT', 'Heroku/Vercel'],
-            githubUrl: 'https://github.com/yourusername/portfolio-api',
-            liveUrl: null // No live URL if it's just an API backend
+            liveUrl: 'https://api.example.dev/portfolio'
         },
-        // Placeholder for Project 9
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+9',
             altText: 'Project 9 Placeholder',
             title: 'Project Title 9',
             description: 'Detailed description for project 9. Explain the purpose, challenges, and solutions implemented. Highlight key features and technologies used.',
             technologies: ['Tech X', 'Tech Y', 'Tech Z'],
-            githubUrl: '#',
-            liveUrl: '#'
+            liveUrl: 'https://project-link-9.example.com'
         },
-        // Placeholder for Project 10
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+10',
             altText: 'Project 10 Placeholder',
             title: 'Project Title 10',
             description: 'Detailed description for project 10. Explain the purpose, challenges, and solutions implemented. Highlight key features and technologies used.',
             technologies: ['Svelte', 'Rust', 'WebAssembly'],
-            githubUrl: '#',
-            liveUrl: '#'
+            liveUrl: 'https://project-link-10.example.com'
         },
-        // ... continue adding projects 11 through 20 ...
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+11',
             altText: 'Project 11 Placeholder',
             title: 'Project Title 11',
             description: 'This is project 11. Customize its details.',
             technologies: ['Tech A', 'Tech B'],
-            githubUrl: '#',
-            liveUrl: '#'
+            liveUrl: 'https://project-link-11.example.com'
         },
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+12',
@@ -117,8 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Project Title 12',
             description: 'This is project 12. Customize its details.',
             technologies: ['Tech C', 'Tech D', 'Tech E'],
-            githubUrl: '#',
-            liveUrl: '#'
+            liveUrl: 'https://project-link-12.example.com'
         },
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+13',
@@ -126,8 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Project Title 13',
             description: 'This is project 13. Customize its details.',
             technologies: ['Python', 'Flask', 'SQLAlchemy'],
-            githubUrl: '#',
-            liveUrl: '#'
+            liveUrl: 'https://project-link-13.example.com'
         },
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+14',
@@ -135,8 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Project Title 14',
             description: 'This is project 14. Customize its details.',
             technologies: ['Java', 'Spring Boot', 'React'],
-            githubUrl: '#',
-            liveUrl: '#'
+            liveUrl: 'https://project-link-14.example.com'
         },
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+15',
@@ -144,8 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Project Title 15',
             description: 'This is project 15. Customize its details.',
             technologies: ['Swift', 'iOS SDK'],
-            githubUrl: '#',
-            liveUrl: '#'
+            liveUrl: 'https://project-link-15.example.com'
         },
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+16',
@@ -153,8 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Project Title 16',
             description: 'This is project 16. Customize its details.',
             technologies: ['Kotlin', 'Android SDK', 'Jetpack Compose'],
-            githubUrl: '#',
-            liveUrl: '#'
+            liveUrl: 'https://project-link-16.example.com'
         },
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+17',
@@ -162,8 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Project Title 17',
             description: 'This is project 17. Customize its details.',
             technologies: ['C#', '.NET', 'Azure'],
-            githubUrl: '#',
-            liveUrl: '#'
+            liveUrl: 'https://project-link-17.example.com'
         },
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+18',
@@ -171,8 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Project Title 18',
             description: 'This is project 18. Customize its details.',
             technologies: ['Go', 'Docker', 'Kubernetes'],
-            githubUrl: '#',
-            liveUrl: '#'
+            liveUrl: 'https://project-link-18.example.com'
         },
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+19',
@@ -180,8 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Project Title 19',
             description: 'This is project 19. Customize its details.',
             technologies: ['PHP', 'Laravel', 'MySQL'],
-            githubUrl: '#',
-            liveUrl: '#'
+            liveUrl: 'https://project-link-19.example.com'
         },
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+20',
@@ -189,8 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Project Title 20',
             description: 'This is project 20. Customize its details. You can add even more projects by simply extending this array.',
             technologies: ['Ruby on Rails', 'PostgreSQL', 'Heroku'],
-            githubUrl: '#',
-            liveUrl: '#'
+            liveUrl: 'https://project-link-20.example.com'
         }
     ];
 
@@ -220,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Title
             const titleH3 = document.createElement('h3');
-            titleH3.className = 'text-xl font-semibold text-slate-100 mb-2'; // Tailwind classes (using slate-100 from CSS variables)
+            titleH3.className = 'text-xl font-semibold text-slate-100 mb-2'; // Tailwind classes
             titleH3.textContent = project.title;
 
             // Description
@@ -238,25 +214,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 techsDiv.appendChild(techSpan);
             });
 
-            // Links (GitHub, Live URL)
+            // Links (Live URL only)
             const linksDiv = document.createElement('div');
-            linksDiv.className = 'mt-auto flex justify-start space-x-4 project-links'; // Tailwind classes and custom class
+            // If there's only one link, 'justify-start' is fine. 'space-x-4' won't apply to a single child.
+            linksDiv.className = 'mt-auto flex justify-start space-x-4 project-links'; 
 
-            if (project.githubUrl && project.githubUrl !== '#') {
-                const githubLink = document.createElement('a');
-                githubLink.href = project.githubUrl;
-                githubLink.target = '_blank';
-                githubLink.setAttribute('aria-label', `${project.title} GitHub repository`);
-                githubLink.innerHTML = '<i class="fab fa-github fa-lg"></i>'; // Font Awesome icon
-                linksDiv.appendChild(githubLink);
-            }
-
+            // Check for Live URL
             if (project.liveUrl && project.liveUrl !== '#') {
                 const liveLink = document.createElement('a');
                 liveLink.href = project.liveUrl;
                 liveLink.target = '_blank';
                 liveLink.setAttribute('aria-label', `${project.title} live demo`);
-                liveLink.innerHTML = '<i class="fas fa-external-link-alt fa-lg"></i>'; // Font Awesome icon
+                liveLink.innerHTML = '<i class="fas fa-external-link-alt fa-lg"></i>'; // Font Awesome icon for external link
                 linksDiv.appendChild(liveLink);
             }
 
@@ -264,7 +233,8 @@ document.addEventListener('DOMContentLoaded', function() {
             contentDiv.appendChild(titleH3);
             contentDiv.appendChild(descriptionP);
             contentDiv.appendChild(techsDiv);
-            if (linksDiv.hasChildNodes()) { // Only append linksDiv if there are links
+            // Only append linksDiv if it actually contains a link
+            if (linksDiv.hasChildNodes()) { 
                 contentDiv.appendChild(linksDiv);
             }
             
@@ -403,6 +373,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add scroll event listener
     window.addEventListener('scroll', changeLinkState);
 
-    console.log("Portfolio script loaded and initialized.");
+    console.log("Portfolio script loaded and initialized. GitHub URLs removed from project data.");
 });
 
