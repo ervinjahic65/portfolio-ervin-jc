@@ -65,12 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
             liveUrl: 'https://dataelemental.com/in/'
         },
         {
-            imageSrc: 'images/project-8.webp',
-            altText: 'Project 8 Screenshot',
-            title: 'Portfolio API',
-            description: 'A RESTful API to serve data for this portfolio website and other personal projects. Built with Node.js and Express, deployed on a cloud platform.',
-            technologies: ['Node.js', 'Express', 'JWT', 'Heroku/Vercel'],
-            liveUrl: 'https://api.example.dev/portfolio'
+            imageSrc: '../images/business-7785093_1280.png',
+            altText: 'Manage DIS',
+            title: 'Manage DIS',
+            description: 'Manage work across teams with one platform so your employees and customers quickly get the help they need.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://managedis.com/in/'
         },
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+9',
