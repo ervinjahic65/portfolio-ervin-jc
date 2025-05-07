@@ -235,11 +235,7 @@ body {
 
 
 /* Responsive adjustments for sidebars if needed */
-@media (max-width: 1024px) { /* lg breakpoint in Tailwind */
-    .social-sidebar, .email-sidebar {
-        /* display: none; */ /* Already handled by hidden lg:flex in HTML */
-    }
-}
+
 @media (max-width: 768px) { /* md breakpoint in Tailwind */
     .social-sidebar, .email-sidebar {
         left: 20px;
@@ -250,10 +246,6 @@ body {
     }
     .section-heading {
         font-size: clamp(1.5rem, 4vw, 2rem);
-    }
-    main { /* Add more padding on mobile if sidebars were to be shown and overlap */
-        /* padding-left: 1rem; */
-        /* padding-right: 1rem; */
     }
 }
 
