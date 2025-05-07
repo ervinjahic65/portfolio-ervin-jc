@@ -41,28 +41,28 @@ document.addEventListener('DOMContentLoaded', function() {
             liveUrl: 'https://trial.bidyls.com/home'
         },
         {
-            imageSrc: 'images/project-5.webp',
-            altText: 'Project 5 Screenshot',
-            title: 'E-commerce Storefront',
-            description: 'A fully responsive e-commerce website with product listings, cart functionality, and a secure checkout process. Integrated with a payment gateway.',
-            technologies: ['React', 'Redux', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
-            liveUrl: 'https://shop.example.com'
+            imageSrc: '../images/ac40dfd9-4986-4903-8546-ea60e7bb514a_iStock-1291760747-1.webp',
+            altText: 'Crowd Consumer',
+            title: 'Crowd Consumer',
+            description: 'With Crowd Consumer, you can analyze massive datasets in real time, capture rich survey feedback quickly, cut down on research project timelines, and drive informed decisions.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://crowdconsumer.com/in/'
         },
         {
-            imageSrc: 'images/project-6.webp',
-            altText: 'Project 6 Screenshot',
-            title: 'Task Management App',
-            description: 'A collaborative task management application allowing users to create projects, assign tasks, set deadlines, and track progress with a Kanban board view.',
-            technologies: ['Angular', 'TypeScript', 'Firebase Realtime DB', 'Tailwind CSS'],
-            liveUrl: 'https://tasks.example.org'
+            imageSrc: '../images/img3.jpg',
+            altText: 'Easy Tech Solution',
+            title: 'Easy Tech Solution',
+            description: 'Easy Tech Solution is a brand-neutral platform that brings all of your data into a single view, giving the right people on your team the right information to make decisions in minutes, rather than days.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://easytech-solution.com/my/'
         },
         {
-            imageSrc: 'images/project-7.webp',
-            altText: 'Project 7 Screenshot',
-            title: 'Weather Dashboard',
-            description: 'A sleek weather dashboard that provides current weather conditions and forecasts for multiple locations using a third-party weather API.',
-            technologies: ['JavaScript (Vanilla)', 'OpenWeatherMap API', 'Chart.js'],
-            liveUrl: 'https://weather.example.io'
+            imageSrc: '../images/c0c584e04ed13fc.png',
+            altText: 'Data Elemental',
+            title: 'Data Elemental',
+            description: 'Data Elemental is our 360º digital intelligence platform. Flexible and customizable, it is capable of analyzing the entire catalog, content and prices of any brand, retailer or marketplace, whether B2B or B2C.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://dataelemental.com/in/'
         },
         {
             imageSrc: 'images/project-8.webp',
