@@ -137,36 +137,36 @@ document.addEventListener('DOMContentLoaded', function() {
             liveUrl: 'https://alltheworldsabusiness.com/in/'
         },
         {
-            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+17',
-            altText: 'Project 17 Placeholder',
-            title: 'Project Title 17',
-            description: 'This is project 17. Customize its details.',
-            technologies: ['C#', '.NET', 'Azure'],
-            liveUrl: 'https://project-link-17.example.com'
+            imageSrc: '../images/slider-1.png',
+            altText: 'High Storm Consulting',
+            title: 'High Storm Consulting',
+            description: 'High Storm Consulting is with you to establish your company. High Storm Consulting gives you the best mentorship and advisory services before and while registering your company with the ease of a peace of mind.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://highstormconsulting.com/in/'
         },
         {
-            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+18',
-            altText: 'Project 18 Placeholder',
-            title: 'Project Title 18',
-            description: 'This is project 18. Customize its details.',
-            technologies: ['Go', 'Docker', 'Kubernetes'],
-            liveUrl: 'https://project-link-18.example.com'
+            imageSrc: '../images/slider-img.png',
+            altText: 'Problem Magic Solution',
+            title: 'Problem Magic Solution',
+            description: 'Protect your business with professional IT services, cybersecurity solutions, and data security measures. Safeguard your valuable data from evolving threats with our expert team and cutting-edge technologies.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://problemmagicsolution.com/in/'
         },
         {
-            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+19',
-            altText: 'Project 19 Placeholder',
-            title: 'Project Title 19',
-            description: 'This is project 19. Customize its details.',
+            imageSrc: '../images/644a8be873029875b644411c_Why-Bloomflow.webp',
+            altText: 'Innovation I',
+            title: 'Innovation I',
+            description: 'Innovation I is the innovation management platform empowering large enterprises to thrive in today’s rapidly changing business landscape',
             technologies: ['PHP', 'Laravel', 'MySQL'],
-            liveUrl: 'https://project-link-19.example.com'
+            liveUrl: 'https://innovationi.com/in/'
         },
         {
-            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+20',
-            altText: 'Project 20 Placeholder',
-            title: 'Project Title 20',
-            description: 'This is project 20. Customize its details. You can add even more projects by simply extending this array.',
-            technologies: ['Ruby on Rails', 'PostgreSQL', 'Heroku'],
-            liveUrl: 'https://project-link-20.example.com'
+            imageSrc: '../images/book-img.png',
+            altText: 'UDRS Consulting',
+            title: 'UDRS Consulting',
+            description: 'UDRS Consulting is a business and organization advisor, collaborating agilely in achieving your growth challenges.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://udrsconsulting.com/in/'
         }
     ];
 
