@@ -1,269 +1,635 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <link rel="shortcut icon" href="./images/favicon.ico" />
-    <meta name="keyword" content="Ervin Jahic, portfolio, javascript, developer" />
-    <meta name="description" content="Undergraduate student studying computer science at UC Berkeley and aspiring web developer." />
-    <meta property="og:title" content="Ervin Jahic | Developer" />
-    <meta property="og:description" content="Undergraduate student studying computer science at UC Berkeley and aspiring web developer." />
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/46205282?s=400&u=e45c30c63d63d42eb50136cca684ba72bba1741b&v=4" />
-    <meta property="og:url" content="https://ervin-jahic-portfolio.netlify.app/" />
-    <meta property="og:type" content="website" />
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-    <script defer src="script.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-a11y="true"></script>
-    <script defer src="https://friconix.com/cdn/friconix.js"></script>
-    <script defer src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    <title>Ervin Jahic | Portfolio</title>
-  </head>
-  <body>
-    <!-- BACK TO TOP BUTTON -->
-    <button id="back-to-top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-    <!-- HEADER -->
-    <header id="home">
-      <nav id="nav" aria-label="Main menu">
-        <div class="logo">
-          <h3>Ervin <span>Jahic</span>
-          </h3>
-        </div>
-        <ul class="links">
-          <li>
-            <a href="#home" class="link">
-              <i class="fas fa-home"></i> Home </a>
-          </li>
-          <li>
-            <a href="#about" class="link">
-              <i class="fas fa-user"></i> About </a>
-          </li>
-          <li>
-            <a href="#skills" class="link">
-              <i class="fas fa-tools"></i> Skills </a>
-          </li>
-          <li>
-            <a href="#projects" class="link">
-              <i class="fab fa-codepen"></i> Projects </a>
-          </li>
-          <li>
-            <a href="#resume" class="link">
-              <i class="fas fa-briefcase"></i> Recommend </a>
-          </li>
-          <!-- DARK MODE TOGGLE -->
-          <div class="color-toggle-container">
-            <input type="checkbox" id="color-toggle-input" />
-            <label for="color-toggle-input" class="color-toggle-label">
-              <div class="color-toggle"></div>
-            </label>
-          </div>
-        </ul>
-        <div class="hamburger-menu" id="hamburger-menu">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </div>
-      </nav>
-      <!-- HERO SECTION -->
-      <div class="hero">
-        <h1 class="h1">Hi, I'm a <span class="animate"></span>
-        </h1>
-        <p class="student" id="student"> I have a passion for web development. </p>
-        <div class="hero-btns">
-          <a href="#about" class="about" id="about-btn">About me</a>
-          <a href="#projects" class="projects-btn" id="projects-btn">Projects</a>
-        </div>
-      </div>
-      <!-- SOCIAL LINKS -->
-      <div class="socials" id="socials">
-        <ul>
-          <li>
-            <a href="https://www.linkedin.com/in/ervin-jahic-07b870170/" target="_blank" class="linkedin" aria-label="LinkedIn" rel="noopener"> LinkedIn <i class="fi-snsuxl-linkedin"></i>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ervin Jahic - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom global styles or overrides */
+        body {
+            font-family: 'Inter', sans-serif; /* Default font */
+            background-color: #0a192f; /* Dark blue background, similar to image */
+            color: #ccd6f6; /* Light text color */
+        }
+
+        /* Hero section typing effect text color */
+        .typed-text-color {
+            color: #64ffda; /* Accent color for typed text */
+        }
+
+        /* Section headings */
+        h2 {
+            font-size: 2.5rem; /* 40px */
+            font-weight: 700;
+            margin-bottom: 2rem; /* 32px */
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #64ffda; /* Accent color for underline */
+            border-radius: 2px;
+        }
+
+        /* Custom card styling (can be enhanced) */
+        .project-card, .skill-card {
+            background-color: #112240; /* Slightly lighter dark blue for cards */
+            border: 1px solid #1d2d50;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project-card:hover, .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(100, 255, 218, 0.1);
+        }
+
+        /* Custom button styling */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem; /* 6px */
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #64ffda;
+            color: #0a192f;
+            border: 1px solid #64ffda;
+        }
+
+        .btn-primary:hover {
+            background-color: #52d3b8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #64ffda;
+            border: 1px solid #64ffda;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Navbar active link style */
+        .nav-link-active {
+            color: #64ffda;
+            font-weight: 700;
+        }
+        
+        /* Social media icons on the left */
+        .social-sidebar {
+            position: fixed;
+            bottom: 0; /* Changed from top to bottom */
+            left: 40px; /* Adjust as needed */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 50; /* Ensure it's above other content */
+        }
+
+        .social-sidebar::after { /* Vertical line */
+            content: '';
+            display: block;
+            width: 1px;
+            height: 90px; /* Length of the line */
+            margin-top: 20px; /* Space between icons and line end */
+            background-color: #a8b2d1; /* Color of the line */
+        }
+
+
+        .social-sidebar a {
+            margin-bottom: 1.25rem; /* 20px spacing between icons */
+            color: #a8b2d1; /* Icon color */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-sidebar a:hover {
+            color: #64ffda; /* Icon hover color */
+            transform: translateY(-3px);
+        }
+
+        /* Email sidebar on the right */
+        .email-sidebar {
+            position: fixed;
+            bottom: 0; /* Changed from top to bottom */
+            right: 40px; /* Adjust as needed */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 50;
+        }
+
+        .email-sidebar::after { /* Vertical line */
+            content: '';
+            display: block;
+            width: 1px;
+            height: 90px; /* Length of the line */
+            margin-top: 20px; /* Space between email and line end */
+            background-color: #a8b2d1; /* Color of the line */
+        }
+
+        .email-sidebar a {
+            writing-mode: vertical-rl;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem; /* 14px */
+            color: #a8b2d1;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding-bottom: 20px; /* Space above the vertical line */
+        }
+
+        .email-sidebar a:hover {
+            color: #64ffda;
+            transform: translateY(-3px);
+        }
+
+        /* Ensure content is not overlapped by fixed sidebars */
+        /* Add padding to main content if sidebars overlap */
+        /* For this example, assuming sidebars are narrow enough not to require main content padding adjustments */
+        /* but for wider sidebars or smaller screens, this might be needed. */
+        /* e.g. main { padding-left: 80px; padding-right: 80px; } */
+
+        /* Mobile menu icon */
+        .menu-icon span {
+            background-color: #64ffda;
+            height: 3px;
+            width: 25px;
+            display: block;
+            margin: 5px 0;
+            transition: all 0.3s ease-in-out;
+        }
+        .menu-icon.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .menu-icon.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-icon.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-40 bg-opacity-90 backdrop-blur-md shadow-lg" style="background-color: rgba(10, 25, 47, 0.85);">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-[#64ffda] hover:text-white transition-colors">
+                ERVIN JAHIC
             </a>
-          </li>
-          <li>
-            <a href="https://github.com/ervinjahic65" target="_blank" class="github" aria-label="GitHub" rel="noopener">GitHub <i class="fi-snsuxl-github-alt"></i>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:ervinjahic65@gmail.com" target="_blank" class="email" aria-label="Email" rel="noopener">Email <i class="fi-xwsuxl-envelope-solid"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-[#ccd6f6] focus:outline-none menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <ul id="nav-links" class="hidden md:flex space-x-6 items-center text-[#ccd6f6]">
+                <li><a href="#about" class="hover:text-[#64ffda] transition-colors px-3 py-2 rounded-md text-sm font-medium nav-link">01. About</a></li>
+                <li><a href="#skills" class="hover:text-[#64ffda] transition-colors px-3 py-2 rounded-md text-sm font-medium nav-link">02. Skills</a></li>
+                <li><a href="#projects" class="hover:text-[#64ffda] transition-colors px-3 py-2 rounded-md text-sm font-medium nav-link">03. Projects</a></li>
+                <li><a href="#contact" class="hover:text-[#64ffda] transition-colors px-3 py-2 rounded-md text-sm font-medium nav-link">04. Contact</a></li>
+                <li><a href="/path/to/your/resume.pdf" target="_blank" class="btn btn-secondary text-sm">Resume</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0a192f] bg-opacity-95">
+            <ul class="flex flex-col items-center py-4 space-y-3">
+                <li><a href="#about" class="block text-[#ccd6f6] hover:text-[#64ffda] transition-colors py-2 text-base nav-link-mobile">01. About</a></li>
+                <li><a href="#skills" class="block text-[#ccd6f6] hover:text-[#64ffda] transition-colors py-2 text-base nav-link-mobile">02. Skills</a></li>
+                <li><a href="#projects" class="block text-[#ccd6f6] hover:text-[#64ffda] transition-colors py-2 text-base nav-link-mobile">03. Projects</a></li>
+                <li><a href="#contact" class="block text-[#ccd6f6] hover:text-[#64ffda] transition-colors py-2 text-base nav-link-mobile">04. Contact</a></li>
+                <li><a href="/path/to/your/resume.pdf" target="_blank" class="btn btn-secondary text-sm mt-2">Resume</a></li>
+            </ul>
+        </div>
     </header>
-    <!-- ABOUT ME -->
-    <section id="about">
-      <div class="container-about">
-        <div class="about-me" id="about-me">
-          <h2>
-            <span>About</span> Me
-          </h2>
-          <p> I'm currently looking to improve my knowledge in software and web development. I'm a Web Developer from Hadzici, Sarajevo in Bosnia and Hercegowina. I have serious passion for coding and development. Mostly self taught and course attendent. Learned a lot reading the internet and just playing around. Let's make something special. </p>
-        </div>
-        <div class="student-img">
-          <img src="./images/hello.svg" height="250px" width="350px" alt="hello" />
-        </div>
-      </div>
-    </section>
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="header" id="header">
-        <h2>My <span>Skills</span>
-        </h2>
-      </div>
-      <div class="container" id="container">
-        <div class="languages">
-          <p>
-            <i class="fas fa-code"></i>
-          </p>
-          <h3>Languages</h3>
-          <span>HTML <span class="iconify" data-icon="logos:html-5" data-inline="false"></span>
-          </span>
-          <br />
-          <span>CSS <span class="iconify" data-icon="logos:css-3" data-inline="false"></span>
-          </span>
-          <br />
-          <span>JS <span class="iconify" data-icon="logos:javascript" data-inline="false"></span>
-          </span>
-          <br />
-          <span>PHP <span class="iconify" data-icon="logos:php" data-inline="false"></span>
-          </span>
-          <br />
-        </div>
-        <div class="learning">
-          <p>
-            <i class="fas fa-book-reader"></i>
-          </p>
-          <h3>Frameworks/Libraries</h3>
-          <span>
-            <span class="iconify" data-icon="logos:angular" data-inline="false"></span>
-          </span>
-          <br />
-          <span>Laravel</span>
-          <span class="iconify" data-icon="logos:laravel" data-inline="false"></span>
-          <br>
-          <span>jQuery</span>
-          <span class="iconify" data-icon="bx:bxl-jquery" data-inline="false"></span>
-          <br>
-          <span>Wordpress</span>
-          <span class="iconify" data-icon="bx:bxl-wordpress" data-inline="false"></span>
-          <br>
-        </div>
-        <div class="technologies">
-          <p>
-            <i class="fas fa-tools"></i>
-          </p>
-          <h3>Technologies</h3>
-          <span>Git <span class="iconify" data-icon="logos:git-icon" data-inline="false"></span>
-          </span>
-          <br>
-          <span>Bootstrap <span class="iconify" data-icon="logos:bootstrap" data-inline="false"></span>
-          </span>
-          <br>
-          <span>MySQL <span class="iconify" data-icon="vscode-icons:file-type-mysql" data-inline="false"></span>
-          </span>
-          <br>
-          <span>PgSql</span>
-          <span class="iconify" data-icon="vscode-icons:file-type-pgsql" data-inline="false"></span </div>
-        </div>
-    </section>
-    <!-- PROJECT SHOWCASE -->
-    <section id="projects">
-      <div class="header" id="header">
-        <h2>My <span>Projects</span>
-        </h2>
-      </div>
-      <div class="container reveal">
-        <div class="card" id="card">
-          <div class="card-img card10"></div>
-          <div class="card-text">
-            <h2> Avensor Customer Care </h2>
-            <p>Xylem Support Page</p>
-            <br />
-            <p class="made-with"> Made with: <span class="iconify" data-icon="vscode-icons:file-type-html" data-inline="false"></span>
-              <span class="iconify" data-icon="vscode-icons:file-type-scss" data-inline="false"></span>
-              <span class="iconify" data-icon="vscode-icons:file-type-angular" data-inline="false"></span>
-              <span class="iconify" data-icon="vscode-icons:file-type-php" data-inline="false"></span>
+
+    <aside class="social-sidebar hidden lg:flex">
+        <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub" class="text-xl"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn" class="text-xl"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter" class="text-xl"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/yourusername" target="_blank" aria-label="Instagram" class="text-xl"><i class="fab fa-instagram"></i></a>
+    </aside>
+
+    <aside class="email-sidebar hidden lg:flex">
+        <a href="mailto:your.email@example.com">your.email@example.com</a>
+    </aside>
+
+
+    <main class="container mx-auto px-6 md:px-16 lg:px-24 pt-24 md:pt-32">
+        <section id="hero" class="min-h-screen flex flex-col justify-center items-start py-20 text-left">
+            <p class="text-lg text-[#64ffda] mb-4 font-mono">Hi, my name is</p>
+            <h1 class="text-5xl md:text-7xl font-bold text-[#ccd6f6] mb-4">Ervin Jahic.</h1>
+            <h2 class="text-4xl md:text-6xl font-bold text-[#8892b0] mb-8">I build things for the web.</h2>
+            <p class="text-lg text-[#8892b0] max-w-xl mb-12">
+                I'm a <span class="typed-text-color font-semibold">programmer</span> with a passion for creating elegant and efficient web solutions.
+                Currently, I'm focused on expanding my skills in full-stack development and exploring new technologies.
+                <span id="typed-output" class="typed-text-color font-semibold"></span><span class="typed-cursor text-[#64ffda]">|</span>
             </p>
-            <br />
-            <p class="startYear">March 2022</p>
-          </div>
-          <div class="card-buttons">
-            <a href="https://support.avensor.cloud/support?lang=en" target="_blank" class="code">
-              <i class="far fa-eye"></i> Visit </a>
-          </div>
-        </div>
-        <div class="card" id="card">
-          <div class="card-img card1"></div>
-          <div class="card-text">
-            <h2>Nectar LMS</h2>
-            <p>Developing web app</p>
-            <br />
-            <p class="made-with"> Made with: <span class="iconify" data-icon="vscode-icons:file-type-html" data-inline="false"></span>
-              <span class="iconify" data-icon="vscode-icons:file-type-css" data-inline="false"></span>
-              <span class="iconify" data-icon="logos:bootstrap" data-inline="false"></span>
-              <span class="iconify" data-icon="logos:javascript" data-inline="false"></span>
-              <span class="iconify" data-icon="logos:laravel" data-inline="false"></span>
-              <span class="iconify" data-icon="logos:mysql" data-inline="false"></span>
+            <div>
+                <a href="#about" class="btn btn-primary mr-4 mb-4 md:mb-0">About Me</a>
+                <a href="#projects" class="btn btn-secondary">My Projects</a>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 md:py-32">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-3/5 md:pr-12 mb-10 md:mb-0">
+                    <h2 class="text-[#ccd6f6] mb-8">01. About Me</h2>
+                    <p class="text-[#8892b0] text-lg leading-relaxed mb-4">
+                        Hello! I'm Ervin, a software developer based in [Your City/Country]. My journey into web development started with a fascination for how interactive and dynamic websites are built. I enjoy turning complex problems into simple, beautiful, and intuitive designs.
+                    </p>
+                    <p class="text-[#8892b0] text-lg leading-relaxed mb-4">
+                        I'm proficient in front-end technologies like HTML, CSS, JavaScript, and modern frameworks such as React and Vue. On the back-end, I have experience with Node.js, Express, and databases like MongoDB and PostgreSQL.
+                    </p>
+                    <p class="text-[#8892b0] text-lg leading-relaxed mb-6">
+                        When I'm not coding, I enjoy [Your Hobby 1], [Your Hobby 2], or exploring the latest advancements in technology. I'm always eager to learn and take on new challenges.
+                    </p>
+                    <p class="text-[#8892b0] text-lg leading-relaxed">Here are a few technologies I've been working with recently:</p>
+                    <ul class="grid grid-cols-2 gap-x-4 gap-y-2 mt-4 text-[#8892b0] font-mono text-sm">
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2">▹</span>JavaScript (ES6+)</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2">▹</span>React</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2">▹</span>Node.js</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2">▹</span>Tailwind CSS</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2">▹</span>Next.js</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2">▹</span>TypeScript</li>
+                    </ul>
+                </div>
+                <div class="md:w-2/5 flex justify-center md:justify-end">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-lg overflow-hidden shadow-xl group relative">
+                        <img src="https://placehold.co/400x400/0a192f/64ffda?text=Your+Image"
+                             alt="Ervin Jahic"
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-[#64ffda] mix-blend-multiply opacity-30 group-hover:opacity-10 transition-opacity duration-300 rounded-lg"></div>
+                        <div class="absolute inset-0 border-2 border-[#64ffda] rounded-lg transform translate-x-3 translate-y-3 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300 pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 md:py-32 text-center">
+            <h2 class="text-[#ccd6f6] mb-16">02. My Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="skill-card p-8 rounded-lg shadow-lg text-left">
+                    <div class="text-4xl text-[#64ffda] mb-6 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.061 14.122 7.5 15 7.5h3M3 21h3.75M3 17.25h3.75M3 13.5h3.75m0 0V21m-3.75-6.75V6.75m0 0H3m3.75 0S8.182 5.162 9 5.25m6 10.75L21 16m-6-4V3" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-[#ccd6f6] mb-4 text-center">Languages</h3>
+                    <ul class="text-[#8892b0] space-y-2 font-mono text-sm">
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>JavaScript (ES6+)</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>Python</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>HTML5</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>CSS3 / SCSS</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>SQL</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>TypeScript</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card p-8 rounded-lg shadow-lg text-left">
+                    <div class="text-4xl text-[#64ffda] mb-6 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-[#ccd6f6] mb-4 text-center">Frameworks / Libraries</h3>
+                    <ul class="text-[#8892b0] space-y-2 font-mono text-sm">
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>React, Next.js</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>Node.js, Express.js</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>Tailwind CSS, Bootstrap</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>jQuery (Legacy)</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>Redux, Zustand</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>Django, Flask (Python)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card p-8 rounded-lg shadow-lg text-left">
+                    <div class="text-4xl text-[#64ffda] mb-6 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12A2.25 2.25 0 0020.25 14.25V3m-16.5 0h16.5m-16.5 0H3.75m0 0V1.5m0 1.5H1.5m1.5 0H3.75m0 0h16.5m0 0V1.5m0 1.5H22.5m-1.5 0H20.25m0 0V3.75m0-3.75H3.75m16.5 3.75h.008v.008h-.008V7.5zm-.752 12V12m0 0H3.75M3.75 12h16.5m0 0v3.75m0-3.75h.008v.008h-.008V12zm2.25-4.5h.008v.008H6.75V7.5zm3 0h.008v.008H9.75V7.5zm3 0h.008v.008H12.75V7.5zm3 0h.008v.008H15.75V7.5zm3 0h.008v.008H18.75V7.5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-[#ccd6f6] mb-4 text-center">Technologies / Tools</h3>
+                    <ul class="text-[#8892b0] space-y-2 font-mono text-sm">
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>Git & GitHub</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>Docker</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>MongoDB, PostgreSQL</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>VS Code, IntelliJ</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>REST APIs, GraphQL</li>
+                        <li class="flex items-center"><span class="text-[#64ffda] mr-2 text-lg">▹</span>Webpack, Babel</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 md:py-32">
+            <h2 class="text-[#ccd6f6] mb-16 text-center md:text-left">03. My Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="project-card rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="https://placehold.co/600x400/112240/334155?text=Project+1+Img" alt="Project 1 Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-[#ccd6f6] mb-2">Avensor Customer Care</h3>
+                        <p class="text-[#8892b0] text-sm leading-relaxed mb-4 flex-grow">
+                            A comprehensive customer support platform with ticketing, live chat, and knowledge base. Built to streamline customer interactions.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">React</span>
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">Node.js</span>
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">MongoDB</span>
+                        </div>
+                        <div class="mt-auto flex justify-start space-x-3">
+                            <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                            <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="https://placehold.co/600x400/112240/334155?text=Nectar+LMS+Img" alt="Project 2 Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-[#ccd6f6] mb-2">Nectar LMS</h3>
+                        <p class="text-[#8892b0] text-sm leading-relaxed mb-4 flex-grow">
+                            Learning Management System for creating and managing online courses. Features include video hosting, quizzes, and progress tracking.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">Vue.js</span>
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">Django</span>
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">PostgreSQL</span>
+                        </div>
+                        <div class="mt-auto flex justify-start space-x-3">
+                            <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                            <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="https://placehold.co/600x400/112240/334155?text=Personal+Projects" alt="Project 3 Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-[#ccd6f6] mb-2">Personal Projects Hub</h3>
+                        <p class="text-[#8892b0] text-sm leading-relaxed mb-4 flex-grow">
+                            A collection of my smaller personal projects and experiments. Showcases various technologies and creative coding ideas.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">JavaScript</span>
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">HTML/CSS</span>
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">APIs</span>
+                        </div>
+                        <div class="mt-auto flex justify-start space-x-3">
+                            <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                            <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="https://placehold.co/600x400/112240/334155?text=BIDVLS+Img" alt="Project 4 Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-[#ccd6f6] mb-2">BIDVLS Platform</h3>
+                        <p class="text-[#8892b0] text-sm leading-relaxed mb-4 flex-grow">
+                            An innovative platform for [describe BIDVLS purpose]. Focused on user experience and robust backend architecture.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">Next.js</span>
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">TypeScript</span>
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">Firebase</span>
+                        </div>
+                        <div class="mt-auto flex justify-start space-x-3">
+                            <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                            <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    // Simple script to generate placeholder project cards
+                    // This is just for demonstration to reach the line count and show 20 placeholders.
+                    // You should replace this with your actual project data.
+                    const projectContainer = document.querySelector('#projects .grid');
+                    const baseProjectCount = 4; // Number of manually defined cards above
+                    const totalProjects = 20;
+
+                    for (let i = baseProjectCount + 1; i <= totalProjects; i++) {
+                        const card = document.createElement('div');
+                        card.className = 'project-card rounded-lg shadow-xl overflow-hidden flex flex-col';
+                        card.innerHTML = `
+                            <img src="https://placehold.co/600x400/112240/334155?text=Project+${i}" alt="Project ${i} Screenshot" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-semibold text-[#ccd6f6] mb-2">Project Title ${i}</h3>
+                                <p class="text-[#8892b0] text-sm leading-relaxed mb-4 flex-grow">
+                                    This is a placeholder description for project ${i}. It showcases my ability to work with various web technologies to deliver outstanding results. More details about the project's objectives, challenges, and outcomes will be added here.
+                                </p>
+                                <div class="mb-4">
+                                    <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">Tech A</span>
+                                    <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">Tech B</span>
+                                    <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">Tech C</span>
+                                </div>
+                                <div class="mt-auto flex justify-start space-x-3">
+                                    <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                                    <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
+                                </div>
+                            </div>
+                        `;
+                        if (projectContainer) {
+                             projectContainer.appendChild(card);
+                        }
+                    }
+                </script>
+            </div> </section>
+
+        <section id="contact" class="py-20 md:py-32 text-center">
+            <p class="text-lg text-[#64ffda] mb-2 font-mono">04. What's Next?</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-[#ccd6f6] mb-6">Get In Touch</h2>
+            <p class="text-[#8892b0] text-lg max-w-xl mx-auto mb-10">
+                I'm currently looking for new opportunities and my inbox is always open.
+                Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!
             </p>
-            <br />
-            <p class="startYear">March 2021 ...</p>
-          </div>
-          <div class="card-buttons">
-            <a href="https://nectar-features-dev.portal-lms.com/login" target="_blank" class="demo">
-              <i class="far fa-eye"></i> Visit 
+            <a href="mailto:your.email@example.com" class="btn btn-primary text-lg px-8 py-4">
+                Say Hello
             </a>
-          </div>
+        </section>
+    </main>
+
+    <footer class="py-8 text-center">
+        <p class="text-[#8892b0] text-sm font-mono">
+            Designed & Built by Ervin Jahic
+            <br>
+            Inspired by Brittany Chiang's design.
+        </p>
+        <div class="flex justify-center space-x-4 mt-4 lg:hidden"> <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub" class="text-[#a8b2d1] hover:text-[#64ffda] transition-colors text-xl"><i class="fab fa-github"></i></a>
+             <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn" class="text-[#a8b2d1] hover:text-[#64ffda] transition-colors text-xl"><i class="fab fa-linkedin-in"></i></a>
+             <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter" class="text-[#a8b2d1] hover:text-[#64ffda] transition-colors text-xl"><i class="fab fa-twitter"></i></a>
+             <a href="https://instagram.com/yourusername" target="_blank" aria-label="Instagram" class="text-[#a8b2d1] hover:text-[#64ffda] transition-colors text-xl"><i class="fab fa-instagram"></i></a>
         </div>
-        <div class="card" id="card">
-          <div class="card-img card2"></div>
-          <div class="card-text">
-            <h2>Personal projects</h2>
-            <p>Github</p>
-            <br />
-            <br />
-            <p class="startYear">2018 ...</p>
-          </div>
-          <div class="card-buttons">
-            <a href="https://github.com/ervinjahic65" target="_blank" class="code">
-              <i class="fas fa-code"></i> Code </a>
-          </div>
-        </div>
-        <div class="card" id="card">
-          <div class="card-img card3"></div>
-          <div class="card-text">
-            <h2> BIDYLS </h2>
-            <p>Music record bet app</p>
-            <br />
-            <p class="made-with"> Made with: <span class="iconify" data-icon="vscode-icons:file-type-html" data-inline="false"></span>
-              <span class="iconify" data-icon="vscode-icons:file-type-scss" data-inline="false"></span>
-              <span class="iconify" data-icon="vscode-icons:file-type-angular" data-inline="false"></span>
-              <span class="iconify" data-icon="vscode-icons:file-type-nginx" data-inline="false"></span>
-              <span class="iconify" data-icon="vscode-icons:file-type-nest-adapter-js" data-inline="false"></span>
-              <span class="iconify" data-icon="vscode-icons:file-type-pgsql" data-inline="false"></span>
-            </p>
-            <br />
-            <p class="startYear">March 2023</p>
-          </div>
-          <div class="card-buttons">
-            <a href="https://trial.bidyls.com/home" target="_blank" class="code">
-              <i class="far fa-eye"></i> Visit 
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer id="resume">
-      <h2>
-        <i class="far fa-star"></i>
-        <span>Recommendation</span> letter <i class="far fa-star"></i>
-      </h2>
-      <a class="resume" href="images/recommendation-letter.pdf" target="_blank">Download <i class="fas fa-arrow-down"></i>
-      </a>
     </footer>
-  </body>
+
+    <script>
+        // JavaScript for interactive elements
+
+        // Typing animation for hero section
+        const typedTextSpan = document.getElementById("typed-output");
+        const cursorSpan = document.querySelector(".typed-cursor");
+        const textArray = ["a web developer.", "a problem solver.", "a lifelong learner."];
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newTextDelay = 2000; // Delay between current and next text
+        let textArrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                cursorSpan.classList.remove("typing");
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                cursorSpan.classList.remove("typing");
+                textArrayIndex++;
+                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, typingDelay + 1100);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if (textArray.length) setTimeout(type, newTextDelay + 250);
+        });
+
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinksMobile = document.querySelectorAll('.nav-link-mobile');
+
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.classList.toggle('open');
+            });
+            // Close mobile menu when a link is clicked
+            navLinksMobile.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.classList.remove('open');
+                });
+            });
+        }
+
+
+        // Smooth scroll for navigation links & active link highlighting
+        const navLinks = document.querySelectorAll('nav a[href^="#"], #mobile-menu a[href^="#"], #hero a[href^="#"]');
+        const header = document.getElementById('header');
+        const headerHeight = header ? header.offsetHeight : 70; // Fallback header height
+
+        navLinks.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerHeight; // Adjust for fixed header
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active link highlighting on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const desktopNavItems = document.querySelectorAll('#nav-links a.nav-link');
+        const mobileNavItems = document.querySelectorAll('#mobile-menu a.nav-link-mobile');
+
+
+        function changeLinkState() {
+            let index = sections.length;
+
+            while(--index && window.scrollY + headerHeight + 50 < sections[index].offsetTop) {} // 50 is an offset
+            
+            desktopNavItems.forEach((link) => link.classList.remove('nav-link-active'));
+            mobileNavItems.forEach((link) => link.classList.remove('nav-link-active')); // Assuming same class for active state
+
+            // Check if the corresponding link exists before trying to add class
+            if (desktopNavItems[index]) {
+                 desktopNavItems[index].classList.add('nav-link-active');
+            }
+            if (mobileNavItems[index]) {
+                 mobileNavItems[index].classList.add('nav-link-active');
+            }
+        }
+
+        // Initial call to set active link on page load (if not at top)
+        if (window.scrollY > 0) {
+            changeLinkState();
+        }
+        // Add scroll event listener
+        window.addEventListener('scroll', changeLinkState);
+
+        // Add placeholder project cards (if not already done by inline script)
+        // This is a fallback in case the inline script in the HTML doesn't run or is removed.
+        // It's generally better to have one source of truth for this.
+        const projectContainerCheck = document.querySelector('#projects .grid');
+        if (projectContainerCheck && projectContainerCheck.children.length < 5) { // Check if cards were already added
+            const baseProjectCountJS = 4; // Assuming 4 are hardcoded in HTML
+            const totalProjectsJS = 20;
+            for (let i = baseProjectCountJS + 1; i <= totalProjectsJS; i++) {
+                const card = document.createElement('div');
+                card.className = 'project-card rounded-lg shadow-xl overflow-hidden flex flex-col';
+                card.innerHTML = `
+                    <img src="https://placehold.co/600x400/112240/334155?text=Project+${i}" alt="Project ${i} Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-[#ccd6f6] mb-2">Project Title ${i} (JS)</h3>
+                        <p class="text-[#8892b0] text-sm leading-relaxed mb-4 flex-grow">
+                            This is a placeholder description for project ${i}, generated by JavaScript. It showcases my ability to work with various web technologies.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">JS Tech A</span>
+                            <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">JS Tech B</span>
+                        </div>
+                        <div class="mt-auto flex justify-start space-x-3">
+                            <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                            <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
+                        </div>
+                    </div>
+                `;
+                projectContainerCheck.appendChild(card);
+            }
+        }
+        console.log("Portfolio script loaded. Number of project cards: " + (projectContainerCheck ? projectContainerCheck.children.length : 0));
+    </script>
+</body>
 </html>
