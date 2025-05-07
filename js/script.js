@@ -73,36 +73,36 @@ document.addEventListener('DOMContentLoaded', function() {
             liveUrl: 'https://managedis.com/in/'
         },
         {
-            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+9',
-            altText: 'Project 9 Placeholder',
-            title: 'Project Title 9',
-            description: 'Detailed description for project 9. Explain the purpose, challenges, and solutions implemented. Highlight key features and technologies used.',
-            technologies: ['Tech X', 'Tech Y', 'Tech Z'],
-            liveUrl: 'https://project-link-9.example.com'
+            imageSrc: '../images/ai-generated-8615473_1280.png',
+            altText: 'Verified Analysis',
+            title: 'Verified Analysis',
+            description: 'Verified Analysis is your data hub for comprehensive eCommerce analysis, providing valuable insights on companies, stores and marketplaces, summarized in our Retailer section.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://verifiedanalysis.com/in/'
         },
         {
-            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+10',
-            altText: 'Project 10 Placeholder',
-            title: 'Project Title 10',
-            description: 'Detailed description for project 10. Explain the purpose, challenges, and solutions implemented. Highlight key features and technologies used.',
-            technologies: ['Svelte', 'Rust', 'WebAssembly'],
-            liveUrl: 'https://project-link-10.example.com'
+            imageSrc: '../images/expertise-image-1.jpg',
+            altText: 'Service Reality',
+            title: 'Service Reality',
+            description: 'Service Reality is a trusted advisor to resident and non-resident customers. It’s our job to make sure your company administration is smooth, easy, and clear.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://servicereality.com/in/'
         },
         {
-            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+11',
-            altText: 'Project 11 Placeholder',
-            title: 'Project Title 11',
-            description: 'This is project 11. Customize its details.',
-            technologies: ['Tech A', 'Tech B'],
-            liveUrl: 'https://project-link-11.example.com'
+            imageSrc: '../images/WealthManagement.com_LP_hero_image_book.png',
+            altText: 'Reliable Wealth Lending',
+            title: 'Reliable Wealth Lending',
+            description: 'Task automation. Personalized client service. Valuable real-time insights.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3'],
+            liveUrl: 'https://reliablewealthlending.com/in/'
         },
         {
-            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+12',
-            altText: 'Project 12 Placeholder',
-            title: 'Project Title 12',
-            description: 'This is project 12. Customize its details.',
-            technologies: ['Tech C', 'Tech D', 'Tech E'],
-            liveUrl: 'https://project-link-12.example.com'
+            imageSrc: '../images/img2.jpg',
+            altText: 'Decor Innovate Tech',
+            title: 'Decor Innovate Tech',
+            description: 'Project management is table stakes. Manage innovation as a lever for growth and turn your product pipeline into a predictable engine for market success.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://decorinnovatetech.com/in/'
         },
         {
             imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+13',
