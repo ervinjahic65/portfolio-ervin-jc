@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // e.g., 'images/project-name.webp' or 'images/project-name.jpg'
     const projectsData = [
         {
-            imageSrc: 'images/avensor-customer-care.webp',
+            imageSrc: '../images/xylem-support-center.jpg',
             altText: 'Avensor Customer Care Platform Screenshot',
             title: 'Avensor Customer Care',
             description: 'A comprehensive customer support platform with ticketing, live chat, and knowledge base. Built to streamline customer interactions and improve response times.',
