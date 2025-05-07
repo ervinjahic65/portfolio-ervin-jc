@@ -1,94 +1,152 @@
+/* css/style.css */
+
 /* Custom global styles or overrides */
 body {
     font-family: 'Inter', sans-serif; /* Default font */
-    background-color: #0a192f; /* Dark blue background, similar to image */
-    color: #ccd6f6; /* Light text color */
+    background-color: #0a192f; /* Dark blue background */
+    color: #ccd6f6; /* Light text color (default for Tailwind's slate-300) */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+/* Color variables (examples, can be integrated with Tailwind config if using PostCSS) */
+:root {
+    --brand-dark-blue: #0a192f;
+    --brand-light-blue: #112240;
+    --brand-lightest-blue: #233554;
+    --brand-slate: #8892b0;
+    --brand-light-slate: #a8b2d1;
+    --brand-lightest-slate: #ccd6f6;
+    --brand-white: #e6f1ff;
+    --brand-accent: #64ffda; /* Teal accent */
+    --brand-accent-darker: #52d3b8;
+}
+
+/* Apply some variables to Tailwind-like custom classes or direct use */
+.bg-brand-dark-blue { background-color: var(--brand-dark-blue); }
+.text-brand-accent { color: var(--brand-accent); }
+.border-brand-accent { border-color: var(--brand-accent); }
 
 /* Hero section typing effect text color */
 .typed-text-color {
-    color: #64ffda; /* Accent color for typed text */
+    color: var(--brand-accent); /* Accent color for typed text */
 }
 
 /* Section headings */
-h2 {
-    font-size: 2.5rem; /* 40px */
+.section-heading { /* Replaces direct h2 styling for more control if needed */
+    font-size: clamp(1.75rem, 5vw, 2.5rem); /* Responsive font size: min, preferred, max */
     font-weight: 700;
     margin-bottom: 2rem; /* 32px */
     position: relative;
     display: inline-block;
+    color: var(--brand-lightest-slate);
 }
 
-h2::after {
+.section-heading::after {
     content: '';
     position: absolute;
     bottom: -10px;
     left: 0;
     width: 60px;
     height: 4px;
-    background-color: #64ffda; /* Accent color for underline */
+    background-color: var(--brand-accent); /* Accent color for underline */
     border-radius: 2px;
 }
 
-/* Custom card styling (can be enhanced) */
+/* Secondary headline style for hero and contact */
+.headline-secondary {
+    color: var(--brand-slate);
+}
+
+
+/* Custom card styling */
 .project-card, .skill-card {
-    background-color: #112240; /* Slightly lighter dark blue for cards */
-    border: 1px solid #1d2d50;
+    background-color: var(--brand-light-blue); /* Slightly lighter dark blue for cards */
+    border: 1px solid var(--brand-lightest-blue); /* Subtle border */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 0.375rem; /* 6px */
 }
 
 .project-card:hover, .skill-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px -5px rgba(100, 255, 218, 0.1);
+    box-shadow: 0 10px 20px -5px rgba(100, 255, 218, 0.07); /* Softer shadow */
 }
+
+/* Project card specific styles */
+.project-card img {
+    border-bottom: 1px solid var(--brand-lightest-blue);
+}
+.project-card .tech-tag {
+    display: inline-block;
+    background-color: var(--brand-lightest-blue); /* Background for tags */
+    color: var(--brand-accent);
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace; /* Monospace font for tags */
+    font-size: 0.75rem; /* 12px */
+    padding: 0.25rem 0.75rem; /* 4px 12px */
+    border-radius: 9999px; /* Full pill shape */
+    margin-right: 0.5rem; /* 8px */
+    margin-bottom: 0.5rem; /* 8px */
+}
+.project-card .project-links a {
+    color: var(--brand-light-slate);
+    transition: color 0.3s ease;
+}
+.project-card .project-links a:hover {
+    color: var(--brand-accent);
+}
+
 
 /* Custom button styling */
 .btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.375rem; /* 6px */
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 0.75rem 1.5rem; /* 12px 24px */
+    border-radius: 0.25rem; /* 4px, slightly sharper than cards */
+    font-weight: 600; /* Medium weight from Inter font */
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace; /* Monospace font for buttons */
+    font-size: 0.875rem; /* 14px */
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
     display: inline-block;
     text-align: center;
+    line-height: 1.25; /* Ensure text is centered vertically */
 }
 
 .btn-primary {
-    background-color: #64ffda;
-    color: #0a192f;
-    border: 1px solid #64ffda;
+    background-color: var(--brand-accent);
+    color: var(--brand-dark-blue);
+    border: 1px solid var(--brand-accent);
 }
 
 .btn-primary:hover {
-    background-color: #52d3b8;
+    background-color: var(--brand-accent-darker);
+    border-color: var(--brand-accent-darker);
     transform: translateY(-2px);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: #64ffda;
-    border: 1px solid #64ffda;
+    color: var(--brand-accent);
+    border: 1px solid var(--brand-accent);
 }
 
 .btn-secondary:hover {
-    background-color: rgba(100, 255, 218, 0.1);
+    background-color: rgba(100, 255, 218, 0.1); /* Slight teal tint on hover */
     transform: translateY(-2px);
 }
 
 /* Navbar active link style */
 .nav-link-active {
-    color: #64ffda;
+    color: var(--brand-accent) !important; /* Use !important if Tailwind specificity is an issue */
     font-weight: 700;
 }
 
 /* Social media icons on the left */
 .social-sidebar {
     position: fixed;
-    bottom: 0; /* Changed from top to bottom */
-    left: 40px; /* Adjust as needed */
+    bottom: 0;
+    left: 40px; /* Adjust as needed for larger screens, consider media queries */
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 50; /* Ensure it's above other content */
+    z-index: 10; /* Lower than header but above content */
 }
 
 .social-sidebar::after { /* Vertical line */
@@ -97,30 +155,29 @@ h2::after {
     width: 1px;
     height: 90px; /* Length of the line */
     margin-top: 20px; /* Space between icons and line end */
-    background-color: #a8b2d1; /* Color of the line */
+    background-color: var(--brand-light-slate); /* Color of the line */
 }
-
 
 .social-sidebar a {
     margin-bottom: 1.25rem; /* 20px spacing between icons */
-    color: #a8b2d1; /* Icon color */
+    color: var(--brand-light-slate); /* Icon color */
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-sidebar a:hover {
-    color: #64ffda; /* Icon hover color */
+    color: var(--brand-accent); /* Icon hover color */
     transform: translateY(-3px);
 }
 
 /* Email sidebar on the right */
 .email-sidebar {
     position: fixed;
-    bottom: 0; /* Changed from top to bottom */
+    bottom: 0;
     right: 40px; /* Adjust as needed */
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 50;
+    z-index: 10;
 }
 
 .email-sidebar::after { /* Vertical line */
@@ -129,37 +186,33 @@ h2::after {
     width: 1px;
     height: 90px; /* Length of the line */
     margin-top: 20px; /* Space between email and line end */
-    background-color: #a8b2d1; /* Color of the line */
+    background-color: var(--brand-light-slate); /* Color of the line */
 }
 
 .email-sidebar a {
     writing-mode: vertical-rl;
-    letter-spacing: 0.1em;
-    font-size: 0.875rem; /* 14px */
-    color: #a8b2d1;
+    letter-spacing: 0.1em; /* Increased letter spacing */
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    font-size: 0.8125rem; /* 13px */
+    color: var(--brand-light-slate);
     transition: color 0.3s ease, transform 0.3s ease;
     padding-bottom: 20px; /* Space above the vertical line */
 }
 
 .email-sidebar a:hover {
-    color: #64ffda;
-    transform: translateY(-3px);
+    color: var(--brand-accent);
+    transform: translateY(-3px); /* Slight upward movement */
 }
-
-/* Ensure content is not overlapped by fixed sidebars */
-/* Add padding to main content if sidebars overlap */
-/* For this example, assuming sidebars are narrow enough not to require main content padding adjustments */
-/* but for wider sidebars or smaller screens, this might be needed. */
-/* e.g. main { padding-left: 80px; padding-right: 80px; } */
 
 /* Mobile menu icon */
 .menu-icon span {
-    background-color: #64ffda;
-    height: 3px;
+    background-color: var(--brand-accent);
+    height: 2px; /* Thinner lines */
     width: 25px;
     display: block;
-    margin: 5px 0;
+    margin: 6px 0; /* Increased spacing */
     transition: all 0.3s ease-in-out;
+    border-radius: 2px;
 }
 .menu-icon.open span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
@@ -168,5 +221,53 @@ h2::after {
     opacity: 0;
 }
 .menu-icon.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    transform: rotate(-45deg) translate(6px, -6px); /* Adjusted for better alignment */
 }
+
+/* Profile image container for hover effect */
+.profile-image-container img {
+    filter: grayscale(30%) contrast(90%); /* Subtle filter, can be removed */
+    transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.profile-image-container:hover img {
+    filter: grayscale(0%) contrast(100%);
+}
+
+
+/* Responsive adjustments for sidebars if needed */
+@media (max-width: 1024px) { /* lg breakpoint in Tailwind */
+    .social-sidebar, .email-sidebar {
+        /* display: none; */ /* Already handled by hidden lg:flex in HTML */
+    }
+}
+@media (max-width: 768px) { /* md breakpoint in Tailwind */
+    .social-sidebar, .email-sidebar {
+        left: 20px;
+        right: 20px;
+    }
+    .social-sidebar a, .email-sidebar a {
+        font-size: 0.75rem; /* Smaller font on smaller screens */
+    }
+    .section-heading {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+    main { /* Add more padding on mobile if sidebars were to be shown and overlap */
+        /* padding-left: 1rem; */
+        /* padding-right: 1rem; */
+    }
+}
+
+/* Ensure main content has enough padding on sides if sidebars are very wide or fixed */
+/* main {
+    padding-left: 80px;  Consider this if fixed sidebars are wider
+    padding-right: 80px; Consider this if fixed sidebars are wider
+} */
+
+/* Fallback for image loading errors on project cards */
+.project-card img[src=""] {
+    display: none; /* Hide broken image icon if src is empty */
+}
+.project-card img:error { /* This is a pseudo-class, might not be universally supported, JS fallback is better */
+    content: url('https://placehold.co/600x400/112240/334155?text=Image+Not+Found');
+}
+

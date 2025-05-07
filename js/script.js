@@ -1,179 +1,408 @@
-// Simple script to generate placeholder project cards
+// js/script.js
 
-const projectContainer = document.querySelector('#projects .grid');
-const baseProjectCount = 4; // Number of manually defined cards above
-const totalProjects = 20;
+document.addEventListener('DOMContentLoaded', function() {
 
-for (let i = baseProjectCount + 1; i <= totalProjects; i++) {
-    const card = document.createElement('div');
-    card.className = 'project-card rounded-lg shadow-xl overflow-hidden flex flex-col';
-    card.innerHTML = `
-        <img src="https://placehold.co/600x400/112240/334155?text=Project+${i}" alt="Project ${i} Screenshot" class="w-full h-48 object-cover">
-        <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-semibold text-[#ccd6f6] mb-2">Project Title ${i}</h3>
-            <p class="text-[#8892b0] text-sm leading-relaxed mb-4 flex-grow">
-                This is a placeholder description for project ${i}. It showcases my ability to work with various web technologies to deliver outstanding results. More details about the project's objectives, challenges, and outcomes will be added here.
-            </p>
-            <div class="mb-4">
-                <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">Tech A</span>
-                <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">Tech B</span>
-                <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">Tech C</span>
-            </div>
-            <div class="mt-auto flex justify-start space-x-3">
-                <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
-                <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
-            </div>
-        </div>
-    `;
-    if (projectContainer) {
-            projectContainer.appendChild(card);
-    }
-}
+    // --- Project Data ---
+    // Define your projects here. Add up to 20 (or more) objects.
+    // For images, store them in an 'images/' folder in your project root,
+    // e.g., 'images/project-name.webp' or 'images/project-name.jpg'
+    // Use webp for better compression and quality if possible.
+    const projectsData = [
+        {
+            imageSrc: 'images/avensor-customer-care.webp', // Example: images/avensor.webp
+            altText: 'Avensor Customer Care Platform Screenshot',
+            title: 'Avensor Customer Care',
+            description: 'A comprehensive customer support platform with ticketing, live chat, and knowledge base. Built to streamline customer interactions and improve response times.',
+            technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.IO'],
+            githubUrl: 'https://github.com/yourusername/avensor-repo', // Replace with actual link
+            liveUrl: 'https://avensor.example.com' // Replace with actual link
+        },
+        {
+            imageSrc: 'images/nectar-lms.webp', // Example: images/nectar-lms.jpg
+            altText: 'Nectar LMS Screenshot',
+            title: 'Nectar LMS',
+            description: 'Learning Management System for creating and managing online courses. Features include video hosting, interactive quizzes, student progress tracking, and certification.',
+            technologies: ['Vue.js', 'Django', 'Python', 'PostgreSQL', 'Celery'],
+            githubUrl: '#', // '#' if no public repo
+            liveUrl: '#' // '#' if not deployed
+        },
+        {
+            imageSrc: 'images/personal-projects-hub.webp',
+            altText: 'Personal Projects Hub Screenshot',
+            title: 'Personal Projects Hub',
+            description: 'A curated collection of my smaller personal projects, experiments, and code snippets. Showcases proficiency in various technologies and creative coding ideas.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'Parcel'],
+            githubUrl: 'https://github.com/yourusername/projects-hub',
+            liveUrl: 'https://projects.example.dev'
+        },
+        {
+            imageSrc: 'images/bidvls-platform.webp',
+            altText: 'BIDVLS Platform Screenshot',
+            title: 'BIDVLS Platform',
+            description: 'An innovative B2B platform for [describe BIDVLS purpose clearly, e.g., supply chain management]. Focused on user experience, data analytics, and robust backend architecture.',
+            technologies: ['Next.js', 'TypeScript', 'GraphQL', 'Firebase', 'Stripe API'],
+            githubUrl: '#',
+            liveUrl: 'https://bidvls.example.com'
+        },
+        // --- ADD MORE PROJECTS BELOW (UP TO 20 or more) ---
+        {
+            imageSrc: 'images/project-5.webp', // Use a generic placeholder or specific image
+            altText: 'Project 5 Screenshot',
+            title: 'E-commerce Storefront',
+            description: 'A fully responsive e-commerce website with product listings, cart functionality, and a secure checkout process. Integrated with a payment gateway.',
+            technologies: ['React', 'Redux', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
+            githubUrl: 'https://github.com/yourusername/ecommerce-store',
+            liveUrl: 'https://shop.example.com'
+        },
+        {
+            imageSrc: 'images/project-6.webp',
+            altText: 'Project 6 Screenshot',
+            title: 'Task Management App',
+            description: 'A collaborative task management application allowing users to create projects, assign tasks, set deadlines, and track progress with a Kanban board view.',
+            technologies: ['Angular', 'TypeScript', 'Firebase Realtime DB', 'Tailwind CSS'],
+            githubUrl: 'https://github.com/yourusername/task-manager',
+            liveUrl: 'https://tasks.example.org'
+        },
+        {
+            imageSrc: 'images/project-7.webp',
+            altText: 'Project 7 Screenshot',
+            title: 'Weather Dashboard',
+            description: 'A sleek weather dashboard that provides current weather conditions and forecasts for multiple locations using a third-party weather API.',
+            technologies: ['JavaScript (Vanilla)', 'OpenWeatherMap API', 'Chart.js'],
+            githubUrl: 'https://github.com/yourusername/weather-dashboard',
+            liveUrl: 'https://weather.example.io'
+        },
+        {
+            imageSrc: 'images/project-8.webp',
+            altText: 'Project 8 Screenshot',
+            title: 'Portfolio API',
+            description: 'A RESTful API to serve data for this portfolio website and other personal projects. Built with Node.js and Express, deployed on a cloud platform.',
+            technologies: ['Node.js', 'Express', 'JWT', 'Heroku/Vercel'],
+            githubUrl: 'https://github.com/yourusername/portfolio-api',
+            liveUrl: null // No live URL if it's just an API backend
+        },
+        // Placeholder for Project 9
+        {
+            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+9',
+            altText: 'Project 9 Placeholder',
+            title: 'Project Title 9',
+            description: 'Detailed description for project 9. Explain the purpose, challenges, and solutions implemented. Highlight key features and technologies used.',
+            technologies: ['Tech X', 'Tech Y', 'Tech Z'],
+            githubUrl: '#',
+            liveUrl: '#'
+        },
+        // Placeholder for Project 10
+        {
+            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+10',
+            altText: 'Project 10 Placeholder',
+            title: 'Project Title 10',
+            description: 'Detailed description for project 10. Explain the purpose, challenges, and solutions implemented. Highlight key features and technologies used.',
+            technologies: ['Svelte', 'Rust', 'WebAssembly'],
+            githubUrl: '#',
+            liveUrl: '#'
+        },
+        // ... continue adding projects 11 through 20 ...
+        {
+            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+11',
+            altText: 'Project 11 Placeholder',
+            title: 'Project Title 11',
+            description: 'This is project 11. Customize its details.',
+            technologies: ['Tech A', 'Tech B'],
+            githubUrl: '#',
+            liveUrl: '#'
+        },
+        {
+            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+12',
+            altText: 'Project 12 Placeholder',
+            title: 'Project Title 12',
+            description: 'This is project 12. Customize its details.',
+            technologies: ['Tech C', 'Tech D', 'Tech E'],
+            githubUrl: '#',
+            liveUrl: '#'
+        },
+        {
+            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+13',
+            altText: 'Project 13 Placeholder',
+            title: 'Project Title 13',
+            description: 'This is project 13. Customize its details.',
+            technologies: ['Python', 'Flask', 'SQLAlchemy'],
+            githubUrl: '#',
+            liveUrl: '#'
+        },
+        {
+            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+14',
+            altText: 'Project 14 Placeholder',
+            title: 'Project Title 14',
+            description: 'This is project 14. Customize its details.',
+            technologies: ['Java', 'Spring Boot', 'React'],
+            githubUrl: '#',
+            liveUrl: '#'
+        },
+        {
+            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+15',
+            altText: 'Project 15 Placeholder',
+            title: 'Project Title 15',
+            description: 'This is project 15. Customize its details.',
+            technologies: ['Swift', 'iOS SDK'],
+            githubUrl: '#',
+            liveUrl: '#'
+        },
+        {
+            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+16',
+            altText: 'Project 16 Placeholder',
+            title: 'Project Title 16',
+            description: 'This is project 16. Customize its details.',
+            technologies: ['Kotlin', 'Android SDK', 'Jetpack Compose'],
+            githubUrl: '#',
+            liveUrl: '#'
+        },
+        {
+            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+17',
+            altText: 'Project 17 Placeholder',
+            title: 'Project Title 17',
+            description: 'This is project 17. Customize its details.',
+            technologies: ['C#', '.NET', 'Azure'],
+            githubUrl: '#',
+            liveUrl: '#'
+        },
+        {
+            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+18',
+            altText: 'Project 18 Placeholder',
+            title: 'Project Title 18',
+            description: 'This is project 18. Customize its details.',
+            technologies: ['Go', 'Docker', 'Kubernetes'],
+            githubUrl: '#',
+            liveUrl: '#'
+        },
+        {
+            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+19',
+            altText: 'Project 19 Placeholder',
+            title: 'Project Title 19',
+            description: 'This is project 19. Customize its details.',
+            technologies: ['PHP', 'Laravel', 'MySQL'],
+            githubUrl: '#',
+            liveUrl: '#'
+        },
+        {
+            imageSrc: 'https://placehold.co/600x400/112240/334155?text=Project+20',
+            altText: 'Project 20 Placeholder',
+            title: 'Project Title 20',
+            description: 'This is project 20. Customize its details. You can add even more projects by simply extending this array.',
+            technologies: ['Ruby on Rails', 'PostgreSQL', 'Heroku'],
+            githubUrl: '#',
+            liveUrl: '#'
+        }
+    ];
 
-// JavaScript for interactive elements
+    // --- Function to Create and Append Project Cards ---
+    const projectGrid = document.getElementById('project-grid');
 
-// Typing animation for hero section
-const typedTextSpan = document.getElementById("typed-output");
-const cursorSpan = document.querySelector(".typed-cursor");
-const textArray = ["a web developer.", "a problem solver.", "a lifelong learner."];
-const typingDelay = 100;
-const erasingDelay = 50;
-const newTextDelay = 2000; // Delay between current and next text
-let textArrayIndex = 0;
-let charIndex = 0;
+    if (projectGrid) {
+        projectsData.forEach(project => {
+            const card = document.createElement('div');
+            card.className = 'project-card rounded-lg shadow-xl overflow-hidden flex flex-col'; // Tailwind classes
 
-function type() {
-    if (charIndex < textArray[textArrayIndex].length) {
-        if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, typingDelay);
+            // Image
+            const img = document.createElement('img');
+            img.src = project.imageSrc;
+            img.alt = project.altText || project.title; // Fallback alt text
+            img.className = 'w-full h-48 object-cover';
+            // Fallback image if the primary one fails to load
+            img.onerror = function() {
+                this.onerror = null; // Prevent infinite loop if placeholder also fails
+                this.src = `https://placehold.co/600x400/112240/334155?text=${encodeURIComponent(project.title.substring(0,15))}`;
+                this.alt = `Placeholder image for ${project.title}`;
+            };
+
+            // Content container
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'p-6 flex flex-col flex-grow'; // Tailwind classes
+
+            // Title
+            const titleH3 = document.createElement('h3');
+            titleH3.className = 'text-xl font-semibold text-slate-100 mb-2'; // Tailwind classes (using slate-100 from CSS variables)
+            titleH3.textContent = project.title;
+
+            // Description
+            const descriptionP = document.createElement('p');
+            descriptionP.className = 'text-slate-400 text-sm leading-relaxed mb-4 flex-grow'; // Tailwind classes
+            descriptionP.textContent = project.description;
+
+            // Technologies
+            const techsDiv = document.createElement('div');
+            techsDiv.className = 'mb-4'; // Tailwind classes
+            project.technologies.forEach(tech => {
+                const techSpan = document.createElement('span');
+                techSpan.className = 'tech-tag'; // Custom class from style.css
+                techSpan.textContent = tech;
+                techsDiv.appendChild(techSpan);
+            });
+
+            // Links (GitHub, Live URL)
+            const linksDiv = document.createElement('div');
+            linksDiv.className = 'mt-auto flex justify-start space-x-4 project-links'; // Tailwind classes and custom class
+
+            if (project.githubUrl && project.githubUrl !== '#') {
+                const githubLink = document.createElement('a');
+                githubLink.href = project.githubUrl;
+                githubLink.target = '_blank';
+                githubLink.setAttribute('aria-label', `${project.title} GitHub repository`);
+                githubLink.innerHTML = '<i class="fab fa-github fa-lg"></i>'; // Font Awesome icon
+                linksDiv.appendChild(githubLink);
+            }
+
+            if (project.liveUrl && project.liveUrl !== '#') {
+                const liveLink = document.createElement('a');
+                liveLink.href = project.liveUrl;
+                liveLink.target = '_blank';
+                liveLink.setAttribute('aria-label', `${project.title} live demo`);
+                liveLink.innerHTML = '<i class="fas fa-external-link-alt fa-lg"></i>'; // Font Awesome icon
+                linksDiv.appendChild(liveLink);
+            }
+
+            // Assemble card
+            contentDiv.appendChild(titleH3);
+            contentDiv.appendChild(descriptionP);
+            contentDiv.appendChild(techsDiv);
+            if (linksDiv.hasChildNodes()) { // Only append linksDiv if there are links
+                contentDiv.appendChild(linksDiv);
+            }
+            
+            card.appendChild(img);
+            card.appendChild(contentDiv);
+
+            projectGrid.appendChild(card);
+        });
     } else {
-        cursorSpan.classList.remove("typing");
-        setTimeout(erase, newTextDelay);
+        console.warn('Project grid container with ID "project-grid" not found.');
     }
-}
 
-function erase() {
-    if (charIndex > 0) {
-        if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(erase, erasingDelay);
-    } else {
-        cursorSpan.classList.remove("typing");
-        textArrayIndex++;
-        if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-        setTimeout(type, typingDelay + 1100);
+
+    // --- Typing Animation for Hero Section ---
+    const typedTextSpan = document.getElementById("typed-output");
+    const cursorSpan = document.querySelector(".typed-cursor");
+    // Text options for typing animation
+    const textArray = ["a web developer.", "a problem solver.", "a lifelong learner.", "an innovator."];
+    const typingDelay = 100;
+    const erasingDelay = 50;
+    const newTextDelay = 2000; // Delay before starting to type next text
+    let textArrayIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+        if (charIndex < textArray[textArrayIndex].length) {
+            if (cursorSpan && !cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+            if (typedTextSpan) typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        } else {
+            if (cursorSpan) cursorSpan.classList.remove("typing");
+            setTimeout(erase, newTextDelay);
+        }
     }
-}
 
-document.addEventListener("DOMContentLoaded", function() {
-    if (textArray.length) setTimeout(type, newTextDelay + 250);
-});
+    function erase() {
+        if (charIndex > 0) {
+            if (cursorSpan && !cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+            if (typedTextSpan) typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, erasingDelay);
+        } else {
+            if (cursorSpan) cursorSpan.classList.remove("typing");
+            textArrayIndex++;
+            if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+            setTimeout(type, typingDelay + 1100); // Delay before typing new text
+        }
+    }
+
+    // Start typing animation if elements exist
+    if (typedTextSpan && cursorSpan && textArray.length > 0) {
+        setTimeout(type, newTextDelay + 250);
+    }
 
 
-// Mobile Menu Toggle
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-const navLinksMobile = document.querySelectorAll('.nav-link-mobile');
+    // --- Mobile Menu Toggle ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinksMobile = document.querySelectorAll('.nav-link-mobile');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.classList.toggle('open'); // For animating the hamburger icon
+        });
+        // Close mobile menu when a link is clicked
+        navLinksMobile.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.classList.remove('open');
+            });
+        });
+    }
 
 
-if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        mobileMenuButton.classList.toggle('open');
-    });
-    // Close mobile menu when a link is clicked
-    navLinksMobile.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenuButton.classList.remove('open');
+    // --- Smooth Scroll for Navigation Links & Active Link Highlighting ---
+    const navLinks = document.querySelectorAll('nav a[href^="#"], #mobile-menu a[href^="#"], #hero a[href^="#"]');
+    const header = document.getElementById('header');
+    // Dynamically get header height, or fallback.
+    // Ensure header is not null before accessing offsetHeight.
+    const headerHeight = header ? header.offsetHeight : 70;
+
+
+    navLinks.forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                // Adjust scroll position to account for the fixed header.
+                const offsetPosition = elementPosition - headerHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
-}
 
+    // --- Active Link Highlighting on Scroll ---
+    const sections = document.querySelectorAll('main section[id]'); // Target sections within main
+    const desktopNavItems = document.querySelectorAll('#nav-links a.nav-link');
+    const mobileNavItems = document.querySelectorAll('#mobile-menu a.nav-link-mobile');
 
-// Smooth scroll for navigation links & active link highlighting
-const navLinks = document.querySelectorAll('nav a[href^="#"], #mobile-menu a[href^="#"], #hero a[href^="#"]');
-const header = document.getElementById('header');
-const headerHeight = header ? header.offsetHeight : 70; // Fallback header height
-
-navLinks.forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-
-        if (targetElement) {
-            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - headerHeight; // Adjust for fixed header
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
+    function changeLinkState() {
+        let currentSectionId = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            // Check if section is in viewport, considering header height and a small offset
+            if (window.pageYOffset >= sectionTop - headerHeight - 50) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+        
+        // Function to update active class for a list of nav items
+        const updateNavItems = (items) => {
+            items.forEach(link => {
+                link.classList.remove('nav-link-active');
+                // Check if the link's href matches the current section ID
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('nav-link-active');
+                }
             });
-        }
-    });
+        };
+
+        updateNavItems(desktopNavItems);
+        updateNavItems(mobileNavItems);
+    }
+
+    // Initial call to set active link on page load
+    changeLinkState();
+    // Add scroll event listener
+    window.addEventListener('scroll', changeLinkState);
+
+    console.log("Portfolio script loaded and initialized.");
 });
 
-// Active link highlighting on scroll
-const sections = document.querySelectorAll('section[id]');
-const desktopNavItems = document.querySelectorAll('#nav-links a.nav-link');
-const mobileNavItems = document.querySelectorAll('#mobile-menu a.nav-link-mobile');
-
-
-function changeLinkState() {
-    let index = sections.length;
-
-    while(--index && window.scrollY + headerHeight + 50 < sections[index].offsetTop) {} // 50 is an offset
-    
-    desktopNavItems.forEach((link) => link.classList.remove('nav-link-active'));
-    mobileNavItems.forEach((link) => link.classList.remove('nav-link-active')); // Assuming same class for active state
-
-    // Check if the corresponding link exists before trying to add class
-    if (desktopNavItems[index]) {
-            desktopNavItems[index].classList.add('nav-link-active');
-    }
-    if (mobileNavItems[index]) {
-            mobileNavItems[index].classList.add('nav-link-active');
-    }
-}
-
-// Initial call to set active link on page load (if not at top)
-if (window.scrollY > 0) {
-    changeLinkState();
-}
-// Add scroll event listener
-window.addEventListener('scroll', changeLinkState);
-
-// Add placeholder project cards (if not already done by inline script)
-// This is a fallback in case the inline script in the HTML doesn't run or is removed.
-// It's generally better to have one source of truth for this.
-const projectContainerCheck = document.querySelector('#projects .grid');
-if (projectContainerCheck && projectContainerCheck.children.length < 5) { // Check if cards were already added
-    const baseProjectCountJS = 4; // Assuming 4 are hardcoded in HTML
-    const totalProjectsJS = 20;
-    for (let i = baseProjectCountJS + 1; i <= totalProjectsJS; i++) {
-        const card = document.createElement('div');
-        card.className = 'project-card rounded-lg shadow-xl overflow-hidden flex flex-col';
-        card.innerHTML = `
-            <img src="https://placehold.co/600x400/112240/334155?text=Project+${i}" alt="Project ${i} Screenshot" class="w-full h-48 object-cover">
-            <div class="p-6 flex flex-col flex-grow">
-                <h3 class="text-xl font-semibold text-[#ccd6f6] mb-2">Project Title ${i} (JS)</h3>
-                <p class="text-[#8892b0] text-sm leading-relaxed mb-4 flex-grow">
-                    This is a placeholder description for project ${i}, generated by JavaScript. It showcases my ability to work with various web technologies.
-                </p>
-                <div class="mb-4">
-                    <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">JS Tech A</span>
-                    <span class="inline-block bg-[#1e293b] text-[#64ffda] text-xs font-mono px-2 py-1 rounded-full mr-2 mb-2">JS Tech B</span>
-                </div>
-                <div class="mt-auto flex justify-start space-x-3">
-                    <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
-                    <a href="#" target="_blank" class="text-[#64ffda] hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
-                </div>
-            </div>
-        `;
-        projectContainerCheck.appendChild(card);
-    }
-}
