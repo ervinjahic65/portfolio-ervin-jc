@@ -13,32 +13,32 @@ document.addEventListener('DOMContentLoaded', function() {
             altText: 'Avensor Customer Care Platform Screenshot',
             title: 'Avensor Customer Care',
             description: 'A comprehensive customer support platform with ticketing, live chat, and knowledge base. Built to streamline customer interactions and improve response times.',
-            technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.IO'],
-            liveUrl: 'https://avensor.example.com' // Replace with actual link
+            technologies: ['HTML5', 'SCSS', 'Express', 'Angular 2+', 'Wordpress'],
+            liveUrl: 'https://support.avensor.cloud/support?lang=en' // Replace with actual link
         },
         {
-            imageSrc: 'images/nectar-lms.webp',
+            imageSrc: '../images/kolibri.png',
             altText: 'Nectar LMS Screenshot',
             title: 'Nectar LMS',
             description: 'Learning Management System for creating and managing online courses. Features include video hosting, interactive quizzes, student progress tracking, and certification.',
-            technologies: ['Vue.js', 'Django', 'Python', 'PostgreSQL', 'Celery'],
-            liveUrl: 'https://nectar-lms.example.com' // Updated placeholder
+            technologies: ['HTML5', 'CSS3', 'JavaScript', 'Vue.js', 'Laravel'],
+            liveUrl: 'https://nectar-features-dev.portal-lms.com/login' // Updated placeholder
         },
         {
-            imageSrc: 'images/personal-projects-hub.webp',
-            altText: 'Personal Projects Hub Screenshot',
-            title: 'Personal Projects Hub',
-            description: 'A curated collection of my smaller personal projects, experiments, and code snippets. Showcases proficiency in various technologies and creative coding ideas.',
-            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'Parcel'],
-            liveUrl: 'https://projects.example.dev'
+            imageSrc: '../images/value-innovation-2.jpg',
+            altText: 'Ultimate Agency Services',
+            title: 'Ultimate Agency Services',
+            description: 'Examples of Growth Strategy engagements (ex: based on Ultimate Agency Services or other suitable methodologies).',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs'],
+            liveUrl: 'https://ultimateagencyservices.com/in/'
         },
         {
-            imageSrc: 'images/bidvls-platform.webp',
-            altText: 'BIDVLS Platform Screenshot',
+            imageSrc: '../images/sample-record.png',
+            altText: 'BIDYLS',
             title: 'BIDVLS Platform',
-            description: 'An innovative B2B platform for [describe BIDVLS purpose clearly, e.g., supply chain management]. Focused on user experience, data analytics, and robust backend architecture.',
-            technologies: ['Next.js', 'TypeScript', 'GraphQL', 'Firebase', 'Stripe API'],
-            liveUrl: 'https://bidvls.example.com'
+            description: 'Music record bet app.',
+            technologies: ['Nest.js', 'TypeScript', 'APIs', 'PostgreSQL', 'HTML5 and SCSS'],
+            liveUrl: 'https://trial.bidyls.com/home'
         },
         {
             imageSrc: 'images/project-5.webp',
