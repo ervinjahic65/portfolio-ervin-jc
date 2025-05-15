@@ -3,10 +3,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- Project Data ---
-    // Define your projects here. All 20 projects now have a placeholder liveUrl.
-    // githubUrl property has been removed from all project objects.
-    // For images, store them in an 'images/' folder in your project root,
-    // e.g., 'images/project-name.webp' or 'images/project-name.jpg'
+    // ... (your existing projectsData array remains the same)
     const projectsData = [
         {
             imageSrc: '../images/xylem-support-center.jpg',
@@ -14,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Avensor Customer Care',
             description: 'A comprehensive customer support platform with ticketing, live chat, and knowledge base. Built to streamline customer interactions and improve response times.',
             technologies: ['HTML5', 'SCSS', 'Express', 'Angular 2+', 'Wordpress'],
-            liveUrl: 'https://support.avensor.cloud/support?lang=en' // Replace with actual link
+            liveUrl: 'https://support.avensor.cloud/support?lang=en'
         },
         {
             imageSrc: '../images/kolibri.png',
@@ -22,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Nectar LMS',
             description: 'Learning Management System for creating and managing online courses. Features include video hosting, interactive quizzes, student progress tracking, and certification.',
             technologies: ['HTML5', 'CSS3', 'JavaScript', 'Vue.js', 'Laravel'],
-            liveUrl: 'https://nectar-features-dev.portal-lms.com/login' // Updated placeholder
+            liveUrl: 'https://nectar-features-dev.portal-lms.com/login'
         },
         {
             imageSrc: '../images/value-innovation-2.jpg',
@@ -170,92 +167,120 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // --- Function to Create and Append Project Cards ---
+    // --- Pagination and Project Loading Logic ---
     const projectGrid = document.getElementById('project-grid');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const loadingIndicator = document.getElementById('loading-indicator');
+    const itemsPerLoad = 8;
+    let itemsCurrentlyDisplayed = 0;
 
-    if (projectGrid) {
-        projectsData.forEach(project => {
-            const card = document.createElement('div');
-            card.className = 'project-card rounded-lg shadow-xl overflow-hidden flex flex-col'; // Tailwind classes
+    function createProjectCard(project) {
+        const card = document.createElement('div');
+        card.className = 'project-card rounded-lg shadow-xl overflow-hidden flex flex-col';
 
-            // Image
-            const img = document.createElement('img');
-            img.src = project.imageSrc;
-            img.alt = project.altText || project.title; // Fallback alt text
-            img.className = 'w-full h-48 object-cover';
-            // Fallback image if the primary one fails to load
-            img.onerror = function() {
-                this.onerror = null; // Prevent infinite loop if placeholder also fails
-                this.src = `https://placehold.co/600x400/112240/334155?text=${encodeURIComponent(project.title.substring(0,15))}`;
-                this.alt = `Placeholder image for ${project.title}`;
-            };
+        const img = document.createElement('img');
+        img.src = project.imageSrc;
+        img.alt = project.altText || project.title;
+        img.className = 'w-full h-48 object-cover';
+        img.onerror = function() {
+            this.onerror = null;
+            this.src = `https://placehold.co/600x400/112240/334155?text=${encodeURIComponent(project.title.substring(0,15))}`;
+            this.alt = `Placeholder image for ${project.title}`;
+        };
 
-            // Content container
-            const contentDiv = document.createElement('div');
-            contentDiv.className = 'p-6 flex flex-col flex-grow'; // Tailwind classes
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'p-6 flex flex-col flex-grow';
 
-            // Title
-            const titleH3 = document.createElement('h3');
-            titleH3.className = 'text-xl font-semibold text-slate-100 mb-2'; // Tailwind classes
-            titleH3.textContent = project.title;
+        const titleH3 = document.createElement('h3');
+        titleH3.className = 'text-xl font-semibold text-slate-100 mb-2';
+        titleH3.textContent = project.title;
 
-            // Description
-            const descriptionP = document.createElement('p');
-            descriptionP.className = 'text-slate-400 text-sm leading-relaxed mb-4 flex-grow'; // Tailwind classes
-            descriptionP.textContent = project.description;
+        const descriptionP = document.createElement('p');
+        descriptionP.className = 'text-slate-400 text-sm leading-relaxed mb-4 flex-grow';
+        descriptionP.textContent = project.description;
 
-            // Technologies
-            const techsDiv = document.createElement('div');
-            techsDiv.className = 'mb-4'; // Tailwind classes
-            project.technologies.forEach(tech => {
-                const techSpan = document.createElement('span');
-                techSpan.className = 'tech-tag'; // Custom class from style.css
-                techSpan.textContent = tech;
-                techsDiv.appendChild(techSpan);
+        const techsDiv = document.createElement('div');
+        techsDiv.className = 'mb-4';
+        project.technologies.forEach(tech => {
+            const techSpan = document.createElement('span');
+            techSpan.className = 'tech-tag';
+            techSpan.textContent = tech;
+            techsDiv.appendChild(techSpan);
+        });
+
+        const linksDiv = document.createElement('div');
+        linksDiv.className = 'mt-auto flex justify-start space-x-4 project-links';
+
+        if (project.liveUrl && project.liveUrl !== '#') {
+            const liveLink = document.createElement('a');
+            liveLink.href = project.liveUrl;
+            liveLink.target = '_blank';
+            liveLink.setAttribute('aria-label', `${project.title} live demo`);
+            liveLink.innerHTML = '<i class="fas fa-external-link-alt fa-lg"></i>';
+            linksDiv.appendChild(liveLink);
+        }
+
+        contentDiv.appendChild(titleH3);
+        contentDiv.appendChild(descriptionP);
+        contentDiv.appendChild(techsDiv);
+        if (linksDiv.hasChildNodes()) {
+            contentDiv.appendChild(linksDiv);
+        }
+
+        card.appendChild(img);
+        card.appendChild(contentDiv);
+        return card;
+    }
+
+    function loadProjects() {
+        if (!projectGrid || !loadMoreBtn || !loadingIndicator) {
+            console.warn('Project grid, load more button, or loading indicator not found.');
+            return;
+        }
+
+        loadingIndicator.classList.remove('hidden'); // Show loading GIF
+        loadMoreBtn.classList.add('hidden'); // Hide button while loading
+
+        // Simulate a delay for loading (remove for production if not needed)
+        setTimeout(() => {
+            const nextItems = projectsData.slice(itemsCurrentlyDisplayed, itemsCurrentlyDisplayed + itemsPerLoad);
+            nextItems.forEach(project => {
+                const card = createProjectCard(project);
+                projectGrid.appendChild(card);
             });
 
-            // Links (Live URL only)
-            const linksDiv = document.createElement('div');
-            // If there's only one link, 'justify-start' is fine. 'space-x-4' won't apply to a single child.
-            linksDiv.className = 'mt-auto flex justify-start space-x-4 project-links'; 
+            itemsCurrentlyDisplayed += nextItems.length;
 
-            // Check for Live URL
-            if (project.liveUrl && project.liveUrl !== '#') {
-                const liveLink = document.createElement('a');
-                liveLink.href = project.liveUrl;
-                liveLink.target = '_blank';
-                liveLink.setAttribute('aria-label', `${project.title} live demo`);
-                liveLink.innerHTML = '<i class="fas fa-external-link-alt fa-lg"></i>'; // Font Awesome icon for external link
-                linksDiv.appendChild(liveLink);
+            loadingIndicator.classList.add('hidden'); // Hide loading GIF
+
+            if (itemsCurrentlyDisplayed >= projectsData.length) {
+                loadMoreBtn.classList.add('hidden'); // All items loaded, hide button
+                document.getElementById('pagination-controls').classList.add('hidden'); // Optionally hide the whole controls div
+            } else {
+                loadMoreBtn.classList.remove('hidden'); // Show button again
             }
+        }, 750); // 750ms delay to show the loading animation
+    }
 
-            // Assemble card
-            contentDiv.appendChild(titleH3);
-            contentDiv.appendChild(descriptionP);
-            contentDiv.appendChild(techsDiv);
-            // Only append linksDiv if it actually contains a link
-            if (linksDiv.hasChildNodes()) { 
-                contentDiv.appendChild(linksDiv);
-            }
-            
-            card.appendChild(img);
-            card.appendChild(contentDiv);
+    if (projectGrid && loadMoreBtn && loadingIndicator) {
+        // Initial load
+        loadProjects();
 
-            projectGrid.appendChild(card);
-        });
+        // Event listener for the load more button
+        loadMoreBtn.addEventListener('click', loadProjects);
     } else {
-        console.warn('Project grid container with ID "project-grid" not found.');
+        console.warn('Project grid container, load more button, or loading indicator with specified IDs not found.');
     }
 
 
     // --- Typing Animation for Hero Section ---
+    // ... (your existing typing animation code)
     const typedTextSpan = document.getElementById("typed-output");
     const cursorSpan = document.querySelector(".typed-cursor");
-    // Text options for typing animation
     const textArray = ["A web developer.", "A problem solver.", "A lifelong learner.", "An innovator."];
     const typingDelay = 100;
     const erasingDelay = 50;
-    const newTextDelay = 2000; // Delay before starting to type next text
+    const newTextDelay = 2000;
     let textArrayIndex = 0;
     let charIndex = 0;
 
@@ -281,17 +306,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (cursorSpan) cursorSpan.classList.remove("typing");
             textArrayIndex++;
             if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-            setTimeout(type, typingDelay + 1100); // Delay before typing new text
+            setTimeout(type, typingDelay + 1100);
         }
     }
 
-    // Start typing animation if elements exist
     if (typedTextSpan && cursorSpan && textArray.length > 0) {
         setTimeout(type, newTextDelay + 250);
     }
 
-
     // --- Mobile Menu Toggle ---
+    // ... (your existing mobile menu code)
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinksMobile = document.querySelectorAll('.nav-link-mobile');
@@ -299,9 +323,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            mobileMenuButton.classList.toggle('open'); // For animating the hamburger icon
+            mobileMenuButton.classList.toggle('open');
         });
-        // Close mobile menu when a link is clicked
         navLinksMobile.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -310,14 +333,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-
     // --- Smooth Scroll for Navigation Links & Active Link Highlighting ---
+    // ... (your existing smooth scroll and active link code)
     const navLinks = document.querySelectorAll('nav a[href^="#"], #mobile-menu a[href^="#"], #hero a[href^="#"]');
     const header = document.getElementById('header');
-    // Dynamically get header height, or fallback.
-    // Ensure header is not null before accessing offsetHeight.
     const headerHeight = header ? header.offsetHeight : 70;
-
 
     navLinks.forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -327,7 +347,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (targetElement) {
                 const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                // Adjust scroll position to account for the fixed header.
                 const offsetPosition = elementPosition - headerHeight;
 
                 window.scrollTo({
@@ -338,8 +357,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- Active Link Highlighting on Scroll ---
-    const sections = document.querySelectorAll('main section[id]'); // Target sections within main
+    const sections = document.querySelectorAll('main section[id]');
     const desktopNavItems = document.querySelectorAll('#nav-links a.nav-link');
     const mobileNavItems = document.querySelectorAll('#mobile-menu a.nav-link-mobile');
 
@@ -347,17 +365,14 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentSectionId = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            // Check if section is in viewport, considering header height and a small offset
             if (window.pageYOffset >= sectionTop - headerHeight - 50) {
                 currentSectionId = section.getAttribute('id');
             }
         });
         
-        // Function to update active class for a list of nav items
         const updateNavItems = (items) => {
             items.forEach(link => {
                 link.classList.remove('nav-link-active');
-                // Check if the link's href matches the current section ID
                 if (link.getAttribute('href') === `#${currentSectionId}`) {
                     link.classList.add('nav-link-active');
                 }
@@ -368,9 +383,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateNavItems(mobileNavItems);
     }
 
-    // Initial call to set active link on page load
     changeLinkState();
-    // Add scroll event listener
     window.addEventListener('scroll', changeLinkState);
 });
-
