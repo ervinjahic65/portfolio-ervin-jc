@@ -196,6 +196,38 @@ document.addEventListener('DOMContentLoaded', function() {
             description: 'Simple agro seeds and pet shop website',
             technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
             liveUrl: 'https://agropet.netlify.app/'
+        },
+        {
+            imageSrc: '../images/slide-two.jpg',
+            altText: 'Doctor Spharm',
+            title: 'Doctor Spharm',
+            description: 'Thinking about General Practice but unsure? After-hours locum work lets you experience it firsthand with clinical support, helping you decide if it is the right path.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://doctorspharm.netlify.app/in/'
+        },
+        {
+            imageSrc: '../images/service_01.jpg',
+            altText: ' JM Consulting Global',
+            title: ' JM Consulting Global',
+            description: 'Navigating business growth presents unique challenges. We provide customized strategies and dedicated support designed to elevate your company.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://jmconsultingglobal.com/in/'
+        },
+        {
+            imageSrc: '../images/earn.jpg',
+            altText: 'Laser Leads Digital',
+            title: 'Laser Leads Digital',
+            description: 'Discover video content from brands relevant to your interests and earn rewards like cash or gift cards. Laser Leads Digital provides an easy way to utilize your downtime.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://laserleadsdigital.com/in/'
+        },
+        {
+            imageSrc: '../images/expertise-hero.jpg',
+            altText: 'Consulting Creative Producer',
+            title: 'Consulting Creative Producer',
+            description: 'We guide organizations through change with truthful, human-centered solutions that integrate every aspect of your operations and culture.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://consultingcreativeproducer.com/in/'
         }
     ];
 
@@ -203,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectGrid = document.getElementById('project-grid');
     const loadMoreBtn = document.getElementById('load-more-btn');
     const loadingIndicator = document.getElementById('loading-indicator');
-    const itemsPerLoad = 8;
+    const itemsPerLoad = 12;
     let itemsCurrentlyDisplayed = 0;
 
     function createProjectCard(project) {
