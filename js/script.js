@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Data Elemental',
             description: 'Data Elemental is our 360º digital intelligence platform. Flexible and customizable, it is capable of analyzing the entire catalog, content and prices of any brand, retailer or marketplace, whether B2B or B2C.',
             technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
-            liveUrl: 'https://dataelemental.com/in/'
+            liveUrl: 'https://dataelemental.netlify.app/in/'
         },
         {
             imageSrc: '../images/business-7785093_1280.png',
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Service Reality',
             description: 'Service Reality is a trusted advisor to resident and non-resident customers. It’s our job to make sure your company administration is smooth, easy, and clear.',
             technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
-            liveUrl: 'https://servicereality.com/in/'
+            liveUrl: 'https://servicereality.netlify.app/in/'
         },
         {
             imageSrc: '../images/WealthManagement.com_LP_hero_image_book.png',
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Consulting Columbus',
             description: 'Consulting Columbus is a leading firm specializing in scam and cryptocurrency investigations. Our team of certified specialists of experienced scam investigators and cyber professionals are dedicated to helping victims of fraud just like you.',
             technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
-            liveUrl: 'https://consultingcolumbus.com/in/'
+            liveUrl: 'https://consultingcolumbus.netlify.app/'
         },
         {
             imageSrc: '../images/blog3.jpg',
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'High Storm Consulting',
             description: 'High Storm Consulting is with you to establish your company. High Storm Consulting gives you the best mentorship and advisory services before and while registering your company with the ease of a peace of mind.',
             technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
-            liveUrl: 'https://highstormconsulting.com/in/'
+            liveUrl: 'https://highstormconsulting.netlify.app/in/'
         },
         {
             imageSrc: '../images/slider-img.png',
