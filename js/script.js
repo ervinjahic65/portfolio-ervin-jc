@@ -164,6 +164,38 @@ document.addEventListener('DOMContentLoaded', function() {
             description: 'UDRS Consulting is a business and organization advisor, collaborating agilely in achieving your growth challenges.',
             technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
             liveUrl: 'https://udrsconsulting.com/in/'
+        },
+        {
+            imageSrc: '../images/Rectangle170.png',
+            altText: 'Rock Lighting',
+            title: 'Rock Lighting',
+            description: 'Rock Lighting is a leading provider of innovative lighting solutions, specializing in high-quality LED products for residential and commercial applications.',
+            technologies: ['Angular 14', 'HTML5', 'CSS3', 'APIs'],
+            liveUrl: 'https://rock-lighting.netlify.app'
+        },
+        {
+            imageSrc: '../images/bg.png',
+            altText: 'Powerworx',
+            title: 'Powerworx',
+            description: 'Langing page for electrical vehicles',
+            technologies: ['HTML5', 'CSS3', 'APIs'],
+            liveUrl: 'https://powerworx-demo.netlify.app/'
+        },
+        {
+            imageSrc: '../images/Lorem-Ipsum-alternatives-768x492.png',
+            altText: 'Lorem ipsum generator',
+            title: 'Lorem ipsum generator',
+            description: 'Generate dummy lorem ipsum text',
+            technologies: ['JavaScript', 'HTML5', 'CSS3'],
+            liveUrl: 'https://lorem-ipsum-generator-ervinjc.netlify.app/'
+        },
+        {
+            imageSrc: '../images/hero-bg.jpg',
+            altText: 'Agro & Pet Shop',
+            title: 'Agro & Pet Shop',
+            description: 'Simple agro seeds and pet shop website',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://agropet.netlify.app/'
         }
     ];
 
