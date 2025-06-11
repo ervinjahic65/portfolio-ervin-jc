@@ -22,20 +22,28 @@ document.addEventListener('DOMContentLoaded', function() {
             liveUrl: 'https://nectar-features-dev.portal-lms.com/login'
         },
         {
+            imageSrc: '../images/sample-record.png',
+            altText: 'BIDLS',
+            title: 'BIDLS Platform',
+            description: 'Music record bet app.',
+            technologies: ['Nest.js', 'TypeScript', 'APIs', 'PostgreSQL', 'HTML5 and SCSS'],
+            liveUrl: 'https://trial.bidyls.com/home'
+        },
+        {
+            imageSrc: '../images/p2.jpg',
+            altText: 'Medical assistance',
+            title: 'Ambulance patient transport',
+            description: 'The Medical Assistance service is an always available medical transport service and, if necessary, a nurse/technician escort. Likewise, if a doctor is needed, an agreement can be made with a doctor to accompany the patient.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://sanitetasistencijasarajevo.ba/'
+        },
+        {
             imageSrc: '../images/value-innovation-2.jpg',
             altText: 'Ultimate Agency Services',
             title: 'Ultimate Agency Services',
             description: 'Examples of Growth Strategy engagements (ex: based on Ultimate Agency Services or other suitable methodologies).',
             technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs'],
             liveUrl: 'https://ultimateagencyservices.com/in/'
-        },
-        {
-            imageSrc: '../images/sample-record.png',
-            altText: 'BIDYLS',
-            title: 'BIDVLS Platform',
-            description: 'Music record bet app.',
-            technologies: ['Nest.js', 'TypeScript', 'APIs', 'PostgreSQL', 'HTML5 and SCSS'],
-            liveUrl: 'https://trial.bidyls.com/home'
         },
         {
             imageSrc: '../images/ac40dfd9-4986-4903-8546-ea60e7bb514a_iStock-1291760747-1.webp',
@@ -228,6 +236,30 @@ document.addEventListener('DOMContentLoaded', function() {
             description: 'We guide organizations through change with truthful, human-centered solutions that integrate every aspect of your operations and culture.',
             technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
             liveUrl: 'https://consultingcreativeproducer.com/in/'
+        },
+        {
+            imageSrc: '../images/istock-blue-sky-and-white-clouds-reflection-in-glass-building-compressed.jpg',
+            altText: 'Financial PLR',
+            title: 'Financial PLR',
+            description: 'Fostering an entrepreneurial leadership culture, we understand the demands of working within the fast-paced corporate and real estate environment. From day-to-day to high pressure transactional work, we consistently deliver a timely, responsive service.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://financialplr.netlify.app/in/'
+        },
+        {
+            imageSrc: '../images/Our-Values.jpg',
+            altText: 'Join Novato',
+            title: 'Join Novato',
+            description: 'Join Novato offers a wealth of opportunities for businesses, making it an attractive destination for entrepreneurs worldwide. All residents can take advantage of these opportunities by forming a Join Novato, which provides liability protection and tax advantages.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://joinnovato.netlify.app/in/'
+        },
+        {
+            imageSrc: '../images/homepage-banner-image-2-small.png',
+            altText: 'Service Reality',
+            title: 'Service Reality',
+            description: 'Service Reality is authorised by the Indian FIU (Financial Intelligence Unit) and licensed to provide financial.',
+            technologies: ['JavaScript', 'HTML5', 'CSS3', 'APIs', 'PHP'],
+            liveUrl: 'https://servicereality.netlify.app/in/'
         }
     ];
 
